@@ -1,0 +1,1133 @@
+{
+  "name": "vd",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "ergvq",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "id",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "name",
+      "name": "Store Member Info"
+    },
+    {
+      "filePath": "./data/valentine.json",
+      "task": "create",
+      "type": "value",
+      "in": null,
+      "valueName": "Никнейм",
+      "value": "\"${tempVars(\"name\")}\"",
+      "jsonPath": "${tempVars(\"id\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [
+        {
+          "placeholder": "valentine",
+          "id": "msg-select-f186e14",
+          "tempVarName": "type",
+          "row": "",
+          "min": "1",
+          "max": "1",
+          "mode": "PERSONAL",
+          "time": "",
+          "options": [
+            {
+              "label": "1",
+              "description": "",
+              "value": "1",
+              "emoji": "",
+              "default": "false"
+            },
+            {
+              "label": "2",
+              "description": "",
+              "value": "2",
+              "emoji": "",
+              "default": "false"
+            },
+            {
+              "label": "3",
+              "description": "",
+              "value": "3",
+              "emoji": "",
+              "default": "false"
+            }
+          ],
+          "actions": [
+            {
+              "filePath": "./data/valentine.json",
+              "task": "create",
+              "type": "object",
+              "in": null,
+              "valueName": "${tempVars(\"id\")}",
+              "value": "",
+              "jsonPath": "",
+              "varName": "",
+              "storage": "0",
+              "name": "Control Custom Data"
+            },
+            {
+              "filePath": "./data/valentine.json",
+              "task": "create",
+              "type": "value",
+              "in": null,
+              "valueName": "Тип",
+              "value": "${tempVars(\"type\")}",
+              "jsonPath": "${tempVars(\"id\")}",
+              "varName": "",
+              "storage": "0",
+              "name": "Control Custom Data"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Введите текст, который будет написан на валентинке",
+                  "url": "",
+                  "color": "5539cc",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "1",
+              "varName2": "msg",
+              "name": "Send Message"
+            },
+            {
+              "storage": "0",
+              "varName": "",
+              "filter": "content.length > 0 && author.id === user.id",
+              "max": "1",
+              "time": "60000",
+              "iftrue": "0",
+              "iftrueVal": "",
+              "iffalse": "1",
+              "iffalseVal": "",
+              "storage2": "1",
+              "varName2": "text",
+              "name": "Await Response Call Action"
+            },
+            {
+              "filePath": "./data/valentine.json",
+              "task": "create",
+              "type": "value",
+              "in": null,
+              "valueName": "Текст",
+              "value": "`${tempVars(\"text\")}`",
+              "jsonPath": "${tempVars(\"id\")}",
+              "varName": "",
+              "storage": "0",
+              "name": "Control Custom Data"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Никнейм пользователя, кому отправить валентинку",
+                  "url": "",
+                  "color": "5539cc",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Примечание: пользователь должен быть на одном из серверов, где присутствует бот, иначе ничего не получится :(",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "1",
+              "varName2": "msg",
+              "name": "Send Message"
+            },
+            {
+              "storage": "0",
+              "varName": "",
+              "filter": "content.length > 0 && author.id === user.id",
+              "max": "1",
+              "time": "60000",
+              "iftrue": "0",
+              "iftrueVal": "",
+              "iffalse": "1",
+              "iffalseVal": "",
+              "storage2": "1",
+              "varName2": "nick",
+              "name": "Await Response Call Action"
+            },
+            {
+              "filePath": "./data/valentine.json",
+              "task": "create",
+              "type": "value",
+              "in": null,
+              "valueName": "Кому",
+              "value": "`${tempVars(\"nick\")}`",
+              "jsonPath": "${tempVars(\"id\")}",
+              "varName": "",
+              "storage": "0",
+              "name": "Control Custom Data"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [
+                {
+                  "name": "Подписать",
+                  "type": "PRIMARY",
+                  "id": "msg-button-293ea67",
+                  "row": "",
+                  "url": "",
+                  "emoji": "",
+                  "mode": "PERSONAL",
+                  "time": "",
+                  "actions": [
+                    {
+                      "storage": "0",
+                      "varName": "",
+                      "type": "all",
+                      "disable": "disable",
+                      "searchValue": "",
+                      "name": "Disable Buttons and Selects"
+                    },
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "message": "",
+                      "buttons": [],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [
+                        {
+                          "title": "Введите подпись",
+                          "url": "",
+                          "color": "5539cc",
+                          "timestamp": "false",
+                          "imageUrl": "",
+                          "thumbUrl": "",
+                          "description": "",
+                          "fields": [],
+                          "author": "",
+                          "authorUrl": "",
+                          "authorIcon": "",
+                          "footerText": "",
+                          "footerIconUrl": ""
+                        }
+                      ],
+                      "reply": true,
+                      "ephemeral": true,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "1",
+                      "varName2": "msg",
+                      "name": "Send Message"
+                    },
+                    {
+                      "storage": "0",
+                      "varName": "",
+                      "filter": "content.length > 0 && author.id === user.id",
+                      "max": "1",
+                      "time": "60000",
+                      "iftrue": "0",
+                      "iftrueVal": "",
+                      "iffalse": "1",
+                      "iffalseVal": "",
+                      "storage2": "1",
+                      "varName2": "sign",
+                      "name": "Await Response Call Action"
+                    },
+                    {
+                      "filePath": "./data/valentine.json",
+                      "task": "create",
+                      "type": "value",
+                      "in": null,
+                      "valueName": "Подпись",
+                      "value": "`${tempVars(\"sign\")}`",
+                      "jsonPath": "${tempVars(\"id\")}",
+                      "varName": "",
+                      "storage": "0",
+                      "name": "Control Custom Data"
+                    },
+                    {
+                      "filePath": "./data/valentine.json",
+                      "valueName": null,
+                      "jsonPath": "${tempVars(\"id\")}/Тип",
+                      "varName": "type1",
+                      "storage": "1",
+                      "name": "Store Custom Data"
+                    },
+                    {
+                      "filePath": "./data/valentine.json",
+                      "valueName": null,
+                      "jsonPath": "${tempVars(\"id\")}/Текст",
+                      "varName": "text1",
+                      "storage": "1",
+                      "name": "Store Custom Data"
+                    },
+                    {
+                      "filePath": "./data/valentine.json",
+                      "valueName": null,
+                      "jsonPath": "${tempVars(\"id\")}/Подпись",
+                      "varName": "sign1",
+                      "storage": "1",
+                      "name": "Store Custom Data"
+                    },
+                    {
+                      "comment": "1",
+                      "color": "#ffff00",
+                      "name": "Comment"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "type1",
+                      "comparison": "1",
+                      "value": "1",
+                      "branch": {
+                        "iftrue": "0",
+                        "iffalse": "3",
+                        "iffalseVal": "5"
+                      },
+                      "name": "Check Variable"
+                    },
+                    {
+                      "url": "resources/valentines_day/1.jpg",
+                      "storage": "1",
+                      "varName": "img",
+                      "name": "Create Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "240",
+                      "y": "450",
+                      "font": "fonts/Comfortaa-36.fnt",
+                      "width": "",
+                      "text": "${tempVars(\"text1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "82",
+                      "y": "1083",
+                      "font": "fonts/Comfortaa-36.fnt",
+                      "width": "",
+                      "text": "От: ${tempVars(\"sign1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "channel": "0",
+                      "varName2": "",
+                      "message": "Валентинка готова!",
+                      "storage2": "0",
+                      "varName3": "",
+                      "name": "Send Image"
+                    },
+                    {
+                      "description": "",
+                      "jump_to_anchor": "send",
+                      "color": "#000000",
+                      "name": "Jump to Anchor"
+                    },
+                    {
+                      "comment": "2",
+                      "color": "#ffff00",
+                      "name": "Comment"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "type1",
+                      "comparison": "1",
+                      "value": "2",
+                      "branch": {
+                        "iftrue": "0",
+                        "iffalse": "3",
+                        "iffalseVal": "5"
+                      },
+                      "name": "Check Variable"
+                    },
+                    {
+                      "url": "resources/valentines_day/2.png",
+                      "storage": "1",
+                      "varName": "img",
+                      "name": "Create Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "35",
+                      "y": "144",
+                      "font": "fonts/Comfortaa-36.fnt",
+                      "width": "",
+                      "text": "${tempVars(\"text1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "202",
+                      "y": "544",
+                      "font": "fonts/Comfortaa-36.fnt",
+                      "width": "",
+                      "text": "От: ${tempVars(\"sign1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "channel": "0",
+                      "varName2": "",
+                      "message": "Валентинка готова!",
+                      "storage2": "0",
+                      "varName3": "",
+                      "name": "Send Image"
+                    },
+                    {
+                      "description": "",
+                      "jump_to_anchor": "send",
+                      "color": "#000000",
+                      "name": "Jump to Anchor"
+                    },
+                    {
+                      "comment": "3",
+                      "color": "#ffff00",
+                      "name": "Comment"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "type1",
+                      "comparison": "1",
+                      "value": "3",
+                      "branch": {
+                        "iftrue": "0",
+                        "iffalse": "1"
+                      },
+                      "name": "Check Variable"
+                    },
+                    {
+                      "url": "resources/valentines_day/3.jpg",
+                      "storage": "1",
+                      "varName": "img",
+                      "name": "Create Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "110",
+                      "y": "203",
+                      "font": "fonts/Comfortaa-white-36.fnt",
+                      "width": "",
+                      "text": "${tempVars(\"text1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "223",
+                      "y": "465",
+                      "font": "fonts/Comfortaa-white-36.fnt",
+                      "width": "",
+                      "text": "От: ${tempVars(\"sign1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "channel": "0",
+                      "varName2": "",
+                      "message": "Валентинка готова!",
+                      "storage2": "0",
+                      "varName3": "",
+                      "name": "Send Image"
+                    },
+                    {
+                      "anchor_id": "send",
+                      "color": "#000000",
+                      "description": "",
+                      "name": "Create Anchor"
+                    },
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "message": "",
+                      "buttons": [
+                        {
+                          "name": "Да",
+                          "type": "PRIMARY",
+                          "id": "msg-button-de2c1b3",
+                          "row": "",
+                          "url": "",
+                          "emoji": "",
+                          "mode": "PERSONAL",
+                          "time": "",
+                          "actions": [
+                            {
+                              "storage": "0",
+                              "varName": "",
+                              "type": "all",
+                              "disable": "disable",
+                              "searchValue": "",
+                              "name": "Disable Buttons and Selects"
+                            },
+                            {
+                              "channel": "0",
+                              "varName": "",
+                              "message": "",
+                              "buttons": [],
+                              "selectMenus": [],
+                              "attachments": [],
+                              "embeds": [
+                                {
+                                  "title": "Валентинка отправлена!",
+                                  "url": "",
+                                  "color": "5539cc",
+                                  "timestamp": "false",
+                                  "imageUrl": "",
+                                  "thumbUrl": "",
+                                  "description": "",
+                                  "fields": [],
+                                  "author": "",
+                                  "authorUrl": "",
+                                  "authorIcon": "",
+                                  "footerText": "",
+                                  "footerIconUrl": ""
+                                }
+                              ],
+                              "reply": true,
+                              "ephemeral": false,
+                              "tts": false,
+                              "overwrite": false,
+                              "dontSend": false,
+                              "editMessage": "0",
+                              "editMessageVarName": "",
+                              "storage": "0",
+                              "varName2": "",
+                              "name": "Send Message"
+                            },
+                            {
+                              "filePath": "./data/valentine.json",
+                              "valueName": null,
+                              "jsonPath": "${tempVars(\"id\")}/Кому",
+                              "varName": "nick1",
+                              "storage": "1",
+                              "name": "Store Custom Data"
+                            },
+                            {
+                              "storage": "1",
+                              "varName": "img",
+                              "channel": "100",
+                              "varName2": "${tempVars(\"nick1\")}",
+                              "message": "Тебе отправили валентинку!",
+                              "storage2": "0",
+                              "varName3": "",
+                              "name": "Send Image"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Нет",
+                          "type": "PRIMARY",
+                          "id": "msg-button-4d498ac",
+                          "row": "",
+                          "url": "",
+                          "emoji": "",
+                          "mode": "PERSONAL",
+                          "time": "",
+                          "actions": [
+                            {
+                              "storage": "0",
+                              "varName": "",
+                              "type": "all",
+                              "disable": "disable",
+                              "searchValue": "",
+                              "name": "Disable Buttons and Selects"
+                            },
+                            {
+                              "channel": "0",
+                              "varName": "",
+                              "message": "",
+                              "buttons": [],
+                              "selectMenus": [],
+                              "attachments": [],
+                              "embeds": [
+                                {
+                                  "title": "Валентинка не отправлена",
+                                  "url": "",
+                                  "color": "5539cc",
+                                  "timestamp": "false",
+                                  "imageUrl": "",
+                                  "thumbUrl": "",
+                                  "description": "",
+                                  "fields": [],
+                                  "author": "",
+                                  "authorUrl": "",
+                                  "authorIcon": "",
+                                  "footerText": "",
+                                  "footerIconUrl": ""
+                                }
+                              ],
+                              "reply": true,
+                              "ephemeral": false,
+                              "tts": false,
+                              "overwrite": false,
+                              "dontSend": false,
+                              "editMessage": "0",
+                              "editMessageVarName": "",
+                              "storage": "0",
+                              "varName2": "",
+                              "name": "Send Message"
+                            }
+                          ]
+                        }
+                      ],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [
+                        {
+                          "title": "Отправляем? :)",
+                          "url": "",
+                          "color": "5539cc",
+                          "timestamp": "false",
+                          "imageUrl": "",
+                          "thumbUrl": "",
+                          "description": "",
+                          "fields": [],
+                          "author": "",
+                          "authorUrl": "",
+                          "authorIcon": "",
+                          "footerText": "",
+                          "footerIconUrl": ""
+                        }
+                      ],
+                      "reply": true,
+                      "ephemeral": true,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "1",
+                      "varName2": "msg",
+                      "name": "Send Message"
+                    }
+                  ]
+                },
+                {
+                  "name": "Не подписывать",
+                  "type": "PRIMARY",
+                  "id": "msg-button-d011f75",
+                  "row": "",
+                  "url": "",
+                  "emoji": "",
+                  "mode": "PERSONAL",
+                  "time": "",
+                  "actions": [
+                    {
+                      "storage": "0",
+                      "varName": "",
+                      "type": "all",
+                      "disable": "disable",
+                      "searchValue": "",
+                      "name": "Disable Buttons and Selects"
+                    },
+                    {
+                      "filePath": "./data/valentine.json",
+                      "task": "create",
+                      "type": "value",
+                      "in": null,
+                      "valueName": "Подпись",
+                      "value": "\"Аноним\"",
+                      "jsonPath": "${tempVars(\"id\")}",
+                      "varName": "",
+                      "storage": "0",
+                      "name": "Control Custom Data"
+                    },
+                    {
+                      "filePath": "./data/valentine.json",
+                      "valueName": null,
+                      "jsonPath": "${tempVars(\"id\")}/Тип",
+                      "varName": "type1",
+                      "storage": "1",
+                      "name": "Store Custom Data"
+                    },
+                    {
+                      "filePath": "./data/valentine.json",
+                      "valueName": null,
+                      "jsonPath": "${tempVars(\"id\")}/Текст",
+                      "varName": "text1",
+                      "storage": "1",
+                      "name": "Store Custom Data"
+                    },
+                    {
+                      "filePath": "./data/valentine.json",
+                      "valueName": null,
+                      "jsonPath": "${tempVars(\"id\")}/Подпись",
+                      "varName": "sign1",
+                      "storage": "1",
+                      "name": "Store Custom Data"
+                    },
+                    {
+                      "comment": "1",
+                      "color": "#ffff00",
+                      "name": "Comment"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "type1",
+                      "comparison": "1",
+                      "value": "1",
+                      "branch": {
+                        "iftrue": "0",
+                        "iffalse": "3",
+                        "iffalseVal": "5"
+                      },
+                      "name": "Check Variable"
+                    },
+                    {
+                      "url": "resources/valentines_day/1.jpg",
+                      "storage": "1",
+                      "varName": "img",
+                      "name": "Create Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "240",
+                      "y": "450",
+                      "font": "fonts/Comfortaa-36.fnt",
+                      "width": "",
+                      "text": "${tempVars(\"text1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "82",
+                      "y": "1083",
+                      "font": "fonts/Comfortaa-36.fnt",
+                      "width": "",
+                      "text": "От: ${tempVars(\"sign1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "channel": "0",
+                      "varName2": "",
+                      "message": "Валентинка готова!",
+                      "storage2": "0",
+                      "varName3": "",
+                      "name": "Send Image"
+                    },
+                    {
+                      "description": "",
+                      "jump_to_anchor": "send",
+                      "color": "#000000",
+                      "name": "Jump to Anchor"
+                    },
+                    {
+                      "comment": "2",
+                      "color": "#ffff00",
+                      "name": "Comment"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "type1",
+                      "comparison": "1",
+                      "value": "2",
+                      "branch": {
+                        "iftrue": "0",
+                        "iffalse": "3",
+                        "iffalseVal": "5"
+                      },
+                      "name": "Check Variable"
+                    },
+                    {
+                      "url": "resources/valentines_day/2.png",
+                      "storage": "1",
+                      "varName": "img",
+                      "name": "Create Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "35",
+                      "y": "144",
+                      "font": "fonts/Comfortaa-36.fnt",
+                      "width": "",
+                      "text": "${tempVars(\"text1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "202",
+                      "y": "544",
+                      "font": "fonts/Comfortaa-36.fnt",
+                      "width": "",
+                      "text": "От: ${tempVars(\"sign1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "channel": "0",
+                      "varName2": "",
+                      "message": "Валентинка готова!",
+                      "storage2": "0",
+                      "varName3": "",
+                      "name": "Send Image"
+                    },
+                    {
+                      "description": "",
+                      "jump_to_anchor": "send",
+                      "color": "#000000",
+                      "name": "Jump to Anchor"
+                    },
+                    {
+                      "comment": "3",
+                      "color": "#ffff00",
+                      "name": "Comment"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "type1",
+                      "comparison": "1",
+                      "value": "3",
+                      "branch": {
+                        "iftrue": "0",
+                        "iffalse": "1"
+                      },
+                      "name": "Check Variable"
+                    },
+                    {
+                      "url": "resources/valentines_day/3.jpg",
+                      "storage": "1",
+                      "varName": "img",
+                      "name": "Create Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "110",
+                      "y": "203",
+                      "font": "fonts/Comfortaa-white-36.fnt",
+                      "width": "",
+                      "text": "${tempVars(\"text1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "x": "223",
+                      "y": "465",
+                      "font": "fonts/Comfortaa-white-36.fnt",
+                      "width": "",
+                      "text": "От: ${tempVars(\"sign1\")}",
+                      "name": "Draw Text on Image"
+                    },
+                    {
+                      "storage": "1",
+                      "varName": "img",
+                      "channel": "0",
+                      "varName2": "",
+                      "message": "Валентинка готова!",
+                      "storage2": "0",
+                      "varName3": "",
+                      "name": "Send Image"
+                    },
+                    {
+                      "anchor_id": "send",
+                      "color": "#000000",
+                      "description": "",
+                      "name": "Create Anchor"
+                    },
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "message": "",
+                      "buttons": [
+                        {
+                          "name": "Да",
+                          "type": "PRIMARY",
+                          "id": "msg-button-de2c1b3",
+                          "row": "",
+                          "url": "",
+                          "emoji": "",
+                          "mode": "MULTI",
+                          "time": "",
+                          "actions": [
+                            {
+                              "storage": "0",
+                              "varName": "",
+                              "type": "all",
+                              "disable": "disable",
+                              "searchValue": "",
+                              "name": "Disable Buttons and Selects"
+                            },
+                            {
+                              "channel": "0",
+                              "varName": "",
+                              "message": "",
+                              "buttons": [],
+                              "selectMenus": [],
+                              "attachments": [],
+                              "embeds": [
+                                {
+                                  "title": "Валентинка отправлена!",
+                                  "url": "",
+                                  "color": "5539cc",
+                                  "timestamp": "false",
+                                  "imageUrl": "",
+                                  "thumbUrl": "",
+                                  "description": "",
+                                  "fields": [],
+                                  "author": "",
+                                  "authorUrl": "",
+                                  "authorIcon": "",
+                                  "footerText": "",
+                                  "footerIconUrl": ""
+                                }
+                              ],
+                              "reply": true,
+                              "ephemeral": false,
+                              "tts": false,
+                              "overwrite": false,
+                              "dontSend": false,
+                              "editMessage": "0",
+                              "editMessageVarName": "",
+                              "storage": "0",
+                              "varName2": "",
+                              "name": "Send Message"
+                            },
+                            {
+                              "filePath": "./data/valentine.json",
+                              "valueName": null,
+                              "jsonPath": "${tempVars(\"id\")}/Кому",
+                              "varName": "nick1",
+                              "storage": "1",
+                              "name": "Store Custom Data"
+                            },
+                            {
+                              "storage": "1",
+                              "varName": "img",
+                              "channel": "100",
+                              "varName2": "${tempVars(\"nick1\")}",
+                              "message": "Тебе отправили валентинку!",
+                              "storage2": "0",
+                              "varName3": "",
+                              "name": "Send Image"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Нет",
+                          "type": "PRIMARY",
+                          "id": "msg-button-4d498ac",
+                          "row": "",
+                          "url": "",
+                          "emoji": "",
+                          "mode": "PERSONAL",
+                          "time": "",
+                          "actions": [
+                            {
+                              "storage": "0",
+                              "varName": "",
+                              "type": "all",
+                              "disable": "disable",
+                              "searchValue": "",
+                              "name": "Disable Buttons and Selects"
+                            },
+                            {
+                              "channel": "0",
+                              "varName": "",
+                              "message": "",
+                              "buttons": [],
+                              "selectMenus": [],
+                              "attachments": [],
+                              "embeds": [
+                                {
+                                  "title": "Валентинка не отправлена",
+                                  "url": "",
+                                  "color": "5539cc",
+                                  "timestamp": "false",
+                                  "imageUrl": "",
+                                  "thumbUrl": "",
+                                  "description": "",
+                                  "fields": [],
+                                  "author": "",
+                                  "authorUrl": "",
+                                  "authorIcon": "",
+                                  "footerText": "",
+                                  "footerIconUrl": ""
+                                }
+                              ],
+                              "reply": true,
+                              "ephemeral": false,
+                              "tts": false,
+                              "overwrite": false,
+                              "dontSend": false,
+                              "editMessage": "0",
+                              "editMessageVarName": "",
+                              "storage": "0",
+                              "varName2": "",
+                              "name": "Send Message"
+                            }
+                          ]
+                        }
+                      ],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [
+                        {
+                          "title": "Отправляем? :)",
+                          "url": "",
+                          "color": "5539cc",
+                          "timestamp": "false",
+                          "imageUrl": "",
+                          "thumbUrl": "",
+                          "description": "",
+                          "fields": [],
+                          "author": "",
+                          "authorUrl": "",
+                          "authorIcon": "",
+                          "footerText": "",
+                          "footerIconUrl": ""
+                        }
+                      ],
+                      "reply": true,
+                      "ephemeral": true,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "1",
+                      "varName2": "msg",
+                      "name": "Send Message"
+                    }
+                  ]
+                }
+              ],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Подписать валентинку?",
+                  "url": "",
+                  "color": "5539cc",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Подпись может быть любой, Вы введете ее сами :)\n\nЕсли не подписывать, будет написано \"От: Аноним\"",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "1",
+              "varName2": "msg",
+              "name": "Send Message"
+            }
+          ]
+        }
+      ],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Выберите тип валентинки",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Примечание: перенос строки НЕ ПОДДЕРЖИВАЕТСЯ!\n\nТекст до 12 символов: https://media.discordapp.net/attachments/916857694114156564/942458784821940234/cs2.jpg?width=700&height=700\nТекст до 32 символов: https://media.discordapp.net/attachments/916857694114156564/942458785132339282/Valentinka-iz-serdechek.png?width=865&height=636\nТекст до 27 символов: https://media.discordapp.net/attachments/916857694114156564/942458785497251950/cs.jpg?width=1152&height=648",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "1",
+      "varName2": "msg",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "description": "Отравить валентинку"
+}
