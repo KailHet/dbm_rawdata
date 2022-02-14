@@ -219,6 +219,26 @@
               "name": "Control Custom Data"
             },
             {
+              "member": "100",
+              "varName": "${tempVars(\"nick\")}",
+              "info": "1",
+              "storage": "1",
+              "varName2": "id_by_nick",
+              "name": "Store Member Info"
+            },
+            {
+              "storage": "1",
+              "varName": "id_by_nick",
+              "comparison": "1",
+              "value": "undefined",
+              "branch": {
+                "iftrue": "4",
+                "iffalse": "0",
+                "iftrueVal": "not_user"
+              },
+              "name": "Check Variable"
+            },
+            {
               "channel": "0",
               "varName": "",
               "message": "",
@@ -1093,6 +1113,48 @@
               "editMessageVarName": "",
               "storage": "1",
               "varName2": "msg",
+              "name": "Send Message"
+            },
+            {
+              "name": "End Action Sequence"
+            },
+            {
+              "anchorName": "not_user",
+              "name": "Action Anchor"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Ошибка!",
+                  "url": "",
+                  "color": "cc0000",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Данного пользователя не существует или бота нет на сервере с ним!",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
               "name": "Send Message"
             }
           ]
