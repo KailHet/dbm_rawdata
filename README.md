@@ -8,3 +8,5 @@ Raw Data of Commands and Events for Discord Bot Maker
 
 # EN
   · giveaway - Giveaway System. Easy but usefull. All in 1 command. Settings for giveaway. Button to view giveaway members. Button for end giveaway (only for admins)
+
+  · valentines_system - [available only on russian]
