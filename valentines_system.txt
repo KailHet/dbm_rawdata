@@ -14,26 +14,6 @@
       "name": "Store Member Info"
     },
     {
-      "member": "1",
-      "varName": "",
-      "info": "2",
-      "storage": "1",
-      "varName2": "name",
-      "name": "Store Member Info"
-    },
-    {
-      "filePath": "./data/valentine.json",
-      "task": "create",
-      "type": "value",
-      "in": null,
-      "valueName": "Никнейм",
-      "value": "\"${tempVars(\"name\")}\"",
-      "jsonPath": "${tempVars(\"id\")}",
-      "varName": "",
-      "storage": "0",
-      "name": "Control Custom Data"
-    },
-    {
       "channel": "0",
       "varName": "",
       "message": "",
@@ -72,30 +52,6 @@
             }
           ],
           "actions": [
-            {
-              "filePath": "./data/valentine.json",
-              "task": "create",
-              "type": "object",
-              "in": null,
-              "valueName": "${tempVars(\"id\")}",
-              "value": "",
-              "jsonPath": "",
-              "varName": "",
-              "storage": "0",
-              "name": "Control Custom Data"
-            },
-            {
-              "filePath": "./data/valentine.json",
-              "task": "create",
-              "type": "value",
-              "in": null,
-              "valueName": "Тип",
-              "value": "${tempVars(\"type\")}",
-              "jsonPath": "${tempVars(\"id\")}",
-              "varName": "",
-              "storage": "0",
-              "name": "Control Custom Data"
-            },
             {
               "channel": "0",
               "varName": "",
@@ -146,18 +102,6 @@
               "name": "Await Response Call Action"
             },
             {
-              "filePath": "./data/valentine.json",
-              "task": "create",
-              "type": "value",
-              "in": null,
-              "valueName": "Текст",
-              "value": "`${tempVars(\"text\")}`",
-              "jsonPath": "${tempVars(\"id\")}",
-              "varName": "",
-              "storage": "0",
-              "name": "Control Custom Data"
-            },
-            {
               "channel": "0",
               "varName": "",
               "message": "",
@@ -205,18 +149,6 @@
               "storage2": "1",
               "varName2": "nick",
               "name": "Await Response Call Action"
-            },
-            {
-              "filePath": "./data/valentine.json",
-              "task": "create",
-              "type": "value",
-              "in": null,
-              "valueName": "Кому",
-              "value": "`${tempVars(\"nick\")}`",
-              "jsonPath": "${tempVars(\"id\")}",
-              "varName": "",
-              "storage": "0",
-              "name": "Control Custom Data"
             },
             {
               "member": "100",
@@ -311,49 +243,13 @@
                       "name": "Await Response Call Action"
                     },
                     {
-                      "filePath": "./data/valentine.json",
-                      "task": "create",
-                      "type": "value",
-                      "in": null,
-                      "valueName": "Подпись",
-                      "value": "`${tempVars(\"sign\")}`",
-                      "jsonPath": "${tempVars(\"id\")}",
-                      "varName": "",
-                      "storage": "0",
-                      "name": "Control Custom Data"
-                    },
-                    {
-                      "filePath": "./data/valentine.json",
-                      "valueName": null,
-                      "jsonPath": "${tempVars(\"id\")}/Тип",
-                      "varName": "type1",
-                      "storage": "1",
-                      "name": "Store Custom Data"
-                    },
-                    {
-                      "filePath": "./data/valentine.json",
-                      "valueName": null,
-                      "jsonPath": "${tempVars(\"id\")}/Текст",
-                      "varName": "text1",
-                      "storage": "1",
-                      "name": "Store Custom Data"
-                    },
-                    {
-                      "filePath": "./data/valentine.json",
-                      "valueName": null,
-                      "jsonPath": "${tempVars(\"id\")}/Подпись",
-                      "varName": "sign1",
-                      "storage": "1",
-                      "name": "Store Custom Data"
-                    },
-                    {
                       "comment": "1",
                       "color": "#ffff00",
                       "name": "Comment"
                     },
                     {
                       "storage": "1",
-                      "varName": "type1",
+                      "varName": "type",
                       "comparison": "1",
                       "value": "1",
                       "branch": {
@@ -376,7 +272,7 @@
                       "y": "450",
                       "font": "fonts/Comfortaa-36.fnt",
                       "width": "",
-                      "text": "${tempVars(\"text1\")}",
+                      "text": "${tempVars(\"text\")}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -386,7 +282,7 @@
                       "y": "1083",
                       "font": "fonts/Comfortaa-36.fnt",
                       "width": "",
-                      "text": "От: ${tempVars(\"sign1\")}",
+                      "text": "От: ${tempVars(\"sign\")}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -412,7 +308,7 @@
                     },
                     {
                       "storage": "1",
-                      "varName": "type1",
+                      "varName": "type",
                       "comparison": "1",
                       "value": "2",
                       "branch": {
@@ -435,7 +331,7 @@
                       "y": "144",
                       "font": "fonts/Comfortaa-36.fnt",
                       "width": "",
-                      "text": "${tempVars(\"text1\")}",
+                      "text": "${tempVars(\"text\")}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -445,7 +341,7 @@
                       "y": "544",
                       "font": "fonts/Comfortaa-36.fnt",
                       "width": "",
-                      "text": "От: ${tempVars(\"sign1\")}",
+                      "text": "От: ${tempVars(\"sign\")}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -471,7 +367,7 @@
                     },
                     {
                       "storage": "1",
-                      "varName": "type1",
+                      "varName": "type",
                       "comparison": "1",
                       "value": "3",
                       "branch": {
@@ -493,7 +389,7 @@
                       "y": "203",
                       "font": "fonts/Comfortaa-white-36.fnt",
                       "width": "",
-                      "text": "${tempVars(\"text1\")}",
+                      "text": "${tempVars(\"text\")}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -503,7 +399,7 @@
                       "y": "465",
                       "font": "fonts/Comfortaa-white-36.fnt",
                       "width": "",
-                      "text": "От: ${tempVars(\"sign1\")}",
+                      "text": "От: ${tempVars(\"sign\")}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -581,18 +477,10 @@
                               "name": "Send Message"
                             },
                             {
-                              "filePath": "./data/valentine.json",
-                              "valueName": null,
-                              "jsonPath": "${tempVars(\"id\")}/Кому",
-                              "varName": "nick1",
-                              "storage": "1",
-                              "name": "Store Custom Data"
-                            },
-                            {
                               "storage": "1",
                               "varName": "img",
                               "channel": "100",
-                              "varName2": "${tempVars(\"nick1\")}",
+                              "varName2": "${tempVars(\"nick\")}",
                               "message": "Тебе отправили валентинку!",
                               "storage2": "0",
                               "varName3": "",
@@ -707,49 +595,13 @@
                       "name": "Disable Buttons and Selects"
                     },
                     {
-                      "filePath": "./data/valentine.json",
-                      "task": "create",
-                      "type": "value",
-                      "in": null,
-                      "valueName": "Подпись",
-                      "value": "\"Аноним\"",
-                      "jsonPath": "${tempVars(\"id\")}",
-                      "varName": "",
-                      "storage": "0",
-                      "name": "Control Custom Data"
-                    },
-                    {
-                      "filePath": "./data/valentine.json",
-                      "valueName": null,
-                      "jsonPath": "${tempVars(\"id\")}/Тип",
-                      "varName": "type1",
-                      "storage": "1",
-                      "name": "Store Custom Data"
-                    },
-                    {
-                      "filePath": "./data/valentine.json",
-                      "valueName": null,
-                      "jsonPath": "${tempVars(\"id\")}/Текст",
-                      "varName": "text1",
-                      "storage": "1",
-                      "name": "Store Custom Data"
-                    },
-                    {
-                      "filePath": "./data/valentine.json",
-                      "valueName": null,
-                      "jsonPath": "${tempVars(\"id\")}/Подпись",
-                      "varName": "sign1",
-                      "storage": "1",
-                      "name": "Store Custom Data"
-                    },
-                    {
                       "comment": "1",
                       "color": "#ffff00",
                       "name": "Comment"
                     },
                     {
                       "storage": "1",
-                      "varName": "type1",
+                      "varName": "type",
                       "comparison": "1",
                       "value": "1",
                       "branch": {
@@ -772,7 +624,7 @@
                       "y": "450",
                       "font": "fonts/Comfortaa-36.fnt",
                       "width": "",
-                      "text": "${tempVars(\"text1\")}",
+                      "text": "${tempVars(\"text\")}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -782,7 +634,7 @@
                       "y": "1083",
                       "font": "fonts/Comfortaa-36.fnt",
                       "width": "",
-                      "text": "От: ${tempVars(\"sign1\")}",
+                      "text": "От: ${tempVars(\"sign\") || 'Аноним'}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -808,7 +660,7 @@
                     },
                     {
                       "storage": "1",
-                      "varName": "type1",
+                      "varName": "type",
                       "comparison": "1",
                       "value": "2",
                       "branch": {
@@ -831,7 +683,7 @@
                       "y": "144",
                       "font": "fonts/Comfortaa-36.fnt",
                       "width": "",
-                      "text": "${tempVars(\"text1\")}",
+                      "text": "${tempVars(\"text\")}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -841,7 +693,7 @@
                       "y": "544",
                       "font": "fonts/Comfortaa-36.fnt",
                       "width": "",
-                      "text": "От: ${tempVars(\"sign1\")}",
+                      "text": "От: ${tempVars(\"sign\") || 'Аноним'}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -867,7 +719,7 @@
                     },
                     {
                       "storage": "1",
-                      "varName": "type1",
+                      "varName": "type",
                       "comparison": "1",
                       "value": "3",
                       "branch": {
@@ -889,7 +741,7 @@
                       "y": "203",
                       "font": "fonts/Comfortaa-white-36.fnt",
                       "width": "",
-                      "text": "${tempVars(\"text1\")}",
+                      "text": "${tempVars(\"text\")}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -899,7 +751,7 @@
                       "y": "465",
                       "font": "fonts/Comfortaa-white-36.fnt",
                       "width": "",
-                      "text": "От: ${tempVars(\"sign1\")}",
+                      "text": "От: ${tempVars(\"sign\") || 'Аноним'}",
                       "name": "Draw Text on Image"
                     },
                     {
@@ -977,18 +829,10 @@
                               "name": "Send Message"
                             },
                             {
-                              "filePath": "./data/valentine.json",
-                              "valueName": null,
-                              "jsonPath": "${tempVars(\"id\")}/Кому",
-                              "varName": "nick1",
-                              "storage": "1",
-                              "name": "Store Custom Data"
-                            },
-                            {
                               "storage": "1",
                               "varName": "img",
                               "channel": "100",
-                              "varName2": "${tempVars(\"nick1\")}",
+                              "varName2": "${tempVars(\"nick\")}",
                               "message": "Тебе отправили валентинку!",
                               "storage2": "0",
                               "varName3": "",
