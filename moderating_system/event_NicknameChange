@@ -1,0 +1,102 @@
+{
+  "name": "NicknameChange",
+  "temp": "nick",
+  "event-type": "Member Nickname Changed MOD",
+  "_id": "dULcX",
+  "actions": [
+    {
+      "filePath": "./data/bot.json",
+      "valueName": null,
+      "jsonPath": "Bot/logs_channel",
+      "varName": "logs_channel",
+      "storage": "1",
+      "name": "Store Custom Data"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "info": "0",
+      "varName2": "",
+      "iftrue": "1",
+      "iftrueVal": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "storage": "1",
+      "varName": "nick",
+      "comparison": "1",
+      "value": "null",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "3",
+        "iffalseVal": "1"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "info": "3",
+      "storage": "1",
+      "varName2": "nick",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "info": "1",
+      "storage": "1",
+      "varName2": "mem_id",
+      "name": "Store Member Info"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "add",
+      "type": "array",
+      "valueName": "${tempVars(\"nick\")}",
+      "value": "",
+      "jsonPath": "${tempVars(\"mem_id\")}/Nicknames",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "channel": "5",
+      "varName": "logs_channel",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Участник сменил никнейм!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Участник ${tempVars(\"member\")} сменил никнейм!",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "temp2": "member"
+}
