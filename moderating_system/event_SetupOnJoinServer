@@ -1,0 +1,472 @@
+{
+  "name": "SetupOnJoinServer",
+  "temp": "member",
+  "event-type": "6",
+  "_id": "wQQqd",
+  "actions": [
+    {
+      "filePath": "./data/bot.json",
+      "valueName": null,
+      "jsonPath": "Bot/logs_channel",
+      "varName": "logs_channel",
+      "storage": "1",
+      "name": "Store Custom Data"
+    },
+    {
+      "member": "2",
+      "varName2": "member",
+      "role": "5",
+      "varName": "role_autogive",
+      "reason": "",
+      "name": "Add Member Role"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "info": "21",
+      "storage": "1",
+      "varName2": "mem_tag",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "info": "3",
+      "storage": "1",
+      "varName2": "mem_name",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "info": "22",
+      "storage": "1",
+      "varName2": "mem_created",
+      "name": "Store Member Info"
+    },
+    {
+      "sourceDate": "${tempVars(\"mem_created\")}",
+      "dateLanguage": "",
+      "modeStorage": "0",
+      "info": "12",
+      "buildInput": "",
+      "storage": "1",
+      "varName": "created",
+      "name": "Store Date Info Plus"
+    },
+    {
+      "channel": "5",
+      "varName": "logs_channel",
+      "message": "",
+      "buttons": [
+        {
+          "name": "Выгнать",
+          "type": "PRIMARY",
+          "id": "msg-button-7e9c060",
+          "row": "",
+          "url": "",
+          "emoji": "",
+          "mode": "PERSISTENT",
+          "time": "",
+          "actions": [
+            {
+              "member": "2",
+              "varName": "member",
+              "reason": "",
+              "name": "Kick Member"
+            },
+            {
+              "channel": "103",
+              "varName": "961337468873998346",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Пользователь выгнан с сервера!",
+                  "url": "",
+                  "color": "5539cc",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "${member} выгнал участника ${tempVars(\"member\")} с сервера!",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ]
+        },
+        {
+          "name": "Забанить",
+          "type": "PRIMARY",
+          "id": "msg-button-67f3bb5",
+          "row": "",
+          "url": "",
+          "emoji": "",
+          "mode": "PERSISTENT",
+          "time": "",
+          "actions": [
+            {
+              "member": "2",
+              "varName": "member",
+              "reason": "",
+              "days": "7",
+              "name": "Ban Member"
+            },
+            {
+              "channel": "103",
+              "varName": "961337468873998346",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Пользователь забанен!",
+                  "url": "",
+                  "color": "5539cc",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "${member} забанил участника ${tempVars(\"member\")}!",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ]
+        }
+      ],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Новый участник!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "${tempVars(\"member\")} (${tempVars(\"mem_tag\")}) присоединился к серверу!\nАккаунт создан: <t:${tempVars(\"created\")}:D> (<t:${tempVars(\"created\")}:R>)",
+          "fields": [
+            {
+              "name": "Выгнать",
+              "value": "Выгоняет участника",
+              "inline": "false"
+            },
+            {
+              "name": "Забанить",
+              "value": "Банит пользователя и удаляет его сообщения за неделю",
+              "inline": "false"
+            }
+          ],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "info": "1",
+      "storage": "1",
+      "varName2": "user",
+      "name": "Store Member Info"
+    },
+    {
+      "filePath": "./data/users.json",
+      "value": "",
+      "branch": {
+        "iftrue": "1",
+        "iffalse": "0"
+      },
+      "jsonPath": "${tempVars(\"user\")}",
+      "comparison": "0",
+      "varName": null,
+      "storage": null,
+      "name": "Check Custom Data"
+    },
+    {
+      "member": "2",
+      "varName": "member",
+      "info": "1",
+      "storage": "1",
+      "varName2": "member",
+      "name": "Store Member Info"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "object",
+      "valueName": "${tempVars(\"member\")}",
+      "value": "",
+      "jsonPath": "",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "VoiceTime",
+      "value": "0",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "MSGs",
+      "value": "0",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "Money",
+      "value": "0",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "REPa",
+      "value": "0",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "REPb",
+      "value": "0",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "Level",
+      "value": "0",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "Warns",
+      "value": "0",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "Birthday",
+      "value": "\"не установлен\"",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "object",
+      "valueName": "Warns",
+      "value": "",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "warn1",
+      "value": "\"нет\"",
+      "jsonPath": "${tempVars(\"member\")}/Warns",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "warn2",
+      "value": "\"нет\"",
+      "jsonPath": "${tempVars(\"member\")}/Warns",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "warn3",
+      "value": "\"нет\"",
+      "jsonPath": "${tempVars(\"member\")}/Warns",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "array",
+      "valueName": "Mutes",
+      "value": "",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "array",
+      "valueName": "Nicknames",
+      "value": "",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "add",
+      "type": "array",
+      "valueName": "${tempVars(\"mem_name\")}",
+      "value": "",
+      "jsonPath": "${tempVars(\"member\")}/Nicknames",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "object",
+      "valueName": "PrivateRole",
+      "value": "",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "RoleID",
+      "value": "\"нет\"",
+      "jsonPath": "${tempVars(\"member\")}/PrivateRole",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "Marry",
+      "value": "'нет'",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "object",
+      "valueName": "PrivateRoom",
+      "value": "",
+      "jsonPath": "${tempVars(\"member\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "RoomID",
+      "value": "\"нет\"",
+      "jsonPath": "${tempVars(\"member\")}/PrivateRoom",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    }
+  ]
+}
