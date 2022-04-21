@@ -1,0 +1,652 @@
+{
+  "name": "warn",
+  "permissions": "BAN_MEMBERS",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "BYsYz",
+  "actions": [
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "chan_id",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "1",
+      "varName": "chan_id",
+      "comparison": "1",
+      "value": "965965527581331516",
+      "branch": {
+        "iftrue": "3",
+        "iffalse": "0",
+        "iftrueVal": "2"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Данную команду можно прописать только в канале <#965965527581331516>!",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "filePath": "./data/bot.json",
+      "valueName": null,
+      "jsonPath": "Bot/logs_channel",
+      "varName": "logs_channel",
+      "storage": "1",
+      "name": "Store Custom Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "permission": "BAN_MEMBERS",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "4",
+        "iffalseVal": "perms"
+      },
+      "name": "Check Member Permissions"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "mem_id",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "5",
+      "varName": "member",
+      "info": "1",
+      "storage": "1",
+      "varName2": "meme_id",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "1",
+      "varName": "mem_id",
+      "comparison": "1",
+      "value": "tempVars(\"meme_id\")",
+      "branch": {
+        "iftrue": "4",
+        "iffalse": "0",
+        "iftrueVal": "same_user"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "filePath": "./data/users.json",
+      "value": "",
+      "branch": {
+        "iftrue": "3",
+        "iffalse": "0",
+        "iftrueVal": "4"
+      },
+      "jsonPath": "${tempVars(\"mem_id\")}/AdminStats",
+      "comparison": "0",
+      "varName": null,
+      "storage": null,
+      "name": "Check Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "object",
+      "valueName": "AdminStats",
+      "value": "0",
+      "jsonPath": "${tempVars(\"mem_id\")}",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "Warns",
+      "value": "0",
+      "jsonPath": "${tempVars(\"mem_id\")}/AdminStats",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "Bans",
+      "value": "0",
+      "jsonPath": "${tempVars(\"mem_id\")}/AdminStats",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "Mutes",
+      "value": "0",
+      "jsonPath": "${tempVars(\"mem_id\")}/AdminStats",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "valueName": null,
+      "jsonPath": "${tempVars(\"mem_id\")}/AdminStats/Warns",
+      "varName": "warns_as",
+      "storage": "1",
+      "name": "Store Custom Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"warns_as\")}",
+      "info": "0",
+      "SecondNumber": "1",
+      "storage": "1",
+      "varName": "warns_as_new",
+      "name": "Basic Math Operation"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "Warns",
+      "value": "${tempVars(\"warns_as_new\")}",
+      "jsonPath": "${tempVars(\"mem_id\")}/AdminStats",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "value": "нет",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "3",
+        "iffalseVal": "4"
+      },
+      "jsonPath": "${tempVars(\"meme_id\")}/Warns/warn1",
+      "comparison": "1",
+      "varName": null,
+      "storage": null,
+      "name": "Check Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "warn1",
+      "value": "\"${slashParams(\"reason\")}\"",
+      "jsonPath": "${tempVars(\"meme_id\")}/Warns",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Пользователю вынесено предупреждение!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Пользователю ${slashParams(\"member\")} выдано **первое** предупреждение.\nМодератор: ${member}\nПричина: ${slashParams(\"reason\")}",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "5",
+      "varName": "logs_channel",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Пользователю вынесено предупреждение!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Пользователю ${slashParams(\"member\")} выдано **первое** предупреждение.\nМодератор: ${member}\nПричина: ${slashParams(\"reason\")}",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "filePath": "./data/users.json",
+      "value": "нет",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "3",
+        "iffalseVal": "4"
+      },
+      "jsonPath": "${tempVars(\"meme_id\")}/Warns/warn2",
+      "comparison": "1",
+      "varName": null,
+      "storage": null,
+      "name": "Check Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "warn2",
+      "value": "\"${slashParams(\"reason\")}\"",
+      "jsonPath": "${tempVars(\"meme_id\")}/Warns",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Пользователю вынесено предупреждение!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Пользователю ${slashParams(\"member\")} выдано **второе** предупреждение.\nМодератор: ${member}\nПричина: ${slashParams(\"reason\")}",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "5",
+      "varName": "logs_channel",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Пользователю вынесено предупреждение!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Пользователю ${slashParams(\"member\")} выдано **второе** предупреждение.\nМодератор: ${member}\nПричина: ${slashParams(\"reason\")}",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "filePath": "./data/users.json",
+      "value": "нет",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "1"
+      },
+      "jsonPath": "${tempVars(\"meme_id\")}/Warns/warn3",
+      "comparison": "1",
+      "varName": null,
+      "storage": null,
+      "name": "Check Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "task": "create",
+      "type": "value",
+      "valueName": "warn3",
+      "value": "\"${slashParams(\"reason\")}\"",
+      "jsonPath": "${tempVars(\"meme_id\")}/Warns",
+      "varName": "",
+      "storage": "0",
+      "name": "Control Custom Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Пользователю вынесено предупреждение!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Пользователю ${slashParams(\"member\")} выдано **третье** предупреждение.\nМодератор: ${member}\nПричина: ${slashParams(\"reason\")}",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "5",
+      "varName": "logs_channel",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Пользователю вынесено предупреждение!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Пользователю ${slashParams(\"member\")} выдано **третье** предупреждение.\nМодератор: ${member}\nПричина: ${slashParams(\"reason\")}",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "member": "5",
+      "varName": "member",
+      "reason": "Достигнуто максимальное количество предупреждений",
+      "days": "",
+      "name": "Ban Member"
+    },
+    {
+      "channel": "5",
+      "varName": "logs_channel",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Пользователю автоматически забанен!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Пользователь ${slashParams(\"member\")} достиг максимальное количество предупреждений!",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchorName": "perms",
+      "name": "Action Anchor"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "У Вас недостаточно прав!",
+          "url": "",
+          "color": "9b111e",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "5",
+      "varName": "logs_channel",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Внимание!",
+          "url": "",
+          "color": "9b111e",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Пользователь ${member} пытался использовать команду /warn!",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchorName": "same_user",
+      "name": "Action Anchor"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Вы не можете забанить самого себя!",
+          "url": "",
+          "color": "9b111e",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "description": "Выдать предупреждение пользователю",
+  "parameters": [
+    {
+      "name": "member",
+      "description": "Пользователь",
+      "type": "USER",
+      "required": true,
+      "choices": null
+    },
+    {
+      "name": "reason",
+      "description": "Причина предупреждения",
+      "type": "STRING",
+      "required": true,
+      "choices": null
+    }
+  ]
+}
