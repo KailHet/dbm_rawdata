@@ -1,0 +1,272 @@
+{
+  "name": "SetupOnMessage",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "aWLPT",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "member",
+      "name": "Store Member Info"
+    },
+    {
+      "filePath": "./data/users.json",
+      "value": "",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "99",
+        "iffalseActions": [
+          {
+            "member": "1",
+            "varName": "",
+            "info": "3",
+            "storage": "1",
+            "varName2": "mem_name",
+            "name": "Store Member Info"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "object",
+            "valueName": "${tempVars(\"member\")}",
+            "value": "",
+            "jsonPath": "",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "VoiceTime",
+            "value": "0",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "MSGs",
+            "value": "0",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "Money",
+            "value": "0",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "REPa",
+            "value": "0",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "REPb",
+            "value": "0",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "Level",
+            "value": "0",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "Warns",
+            "value": "0",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "Birthday",
+            "value": "\"не установлен\"",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "object",
+            "valueName": "Warns",
+            "value": "",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "warn1",
+            "value": "\"нет\"",
+            "jsonPath": "${tempVars(\"member\")}/Warns",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "warn2",
+            "value": "\"нет\"",
+            "jsonPath": "${tempVars(\"member\")}/Warns",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "warn3",
+            "value": "\"нет\"",
+            "jsonPath": "${tempVars(\"member\")}/Warns",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "array",
+            "valueName": "Mutes",
+            "value": "",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "array",
+            "valueName": "Nicknames",
+            "value": "",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "add",
+            "type": "array",
+            "valueName": "${tempVars(\"mem_name\")}",
+            "value": "",
+            "jsonPath": "${tempVars(\"member\")}/Nicknames",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "object",
+            "valueName": "PrivateRole",
+            "value": "",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "RoleID",
+            "value": "\"нет\"",
+            "jsonPath": "${tempVars(\"member\")}/PrivateRole",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "Marry",
+            "value": "'нет'",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "object",
+            "valueName": "PrivateRoom",
+            "value": "",
+            "jsonPath": "${tempVars(\"member\")}",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          },
+          {
+            "filePath": "./data/users.json",
+            "task": "create",
+            "type": "value",
+            "valueName": "RoomID",
+            "value": "\"нет\"",
+            "jsonPath": "${tempVars(\"member\")}/PrivateRoom",
+            "varName": "",
+            "storage": "0",
+            "name": "Control Custom Data"
+          }
+        ]
+      },
+      "jsonPath": "${tempVars(\"member\")}",
+      "comparison": "0",
+      "varName": null,
+      "storage": null,
+      "name": "Check Custom Data"
+    }
+  ],
+  "comType": "3"
+}
