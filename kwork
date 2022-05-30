@@ -1,0 +1,126 @@
+{
+  "name": "kwork",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "aJueF",
+  "actions": [
+    {
+      "comment": "Script with API",
+      "color": "#ffff00",
+      "name": "Comment"
+    },
+    {
+      "comment": "In the script all vars are commented",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "const kwork = require('kwork-api')\n\nasync function load() {\n\t// Третий параметр это последние 4 цифры привязанного номера телефона\nlet kw = new kwork('логин', 'пароль', '0000')\n\n let me = await kw.getMe()\n\n Actions.storeValue(me.username, 1, \"username\", cache) // никнейм\n Actions.storeValue(me.status, 1, \"status\", cache) // статус (активен или нет)\n Actions.storeValue(me.profilepicture, 1, \"avatarURL\", cache) // ссылка на аву\n Actions.storeValue(me.description, 1, \"description\", cache) // описание аккаунта\n Actions.storeValue(me.fullname, 1, \"fullname\", cache) // настоящее имя\n Actions.storeValue(me.level_description, 1, \"rank\", cache) // уровень (Новичок и тд)\n Actions.storeValue(me.good_reviews, 1, \"goodrep\", cache) // хороших отзывов\n Actions.storeValue(me.bad_reviews, 1, \"badrep\", cache) // плохих отзывов\n Actions.storeValue(me.rating, 1, \"rating\", cache) // рейтинг\n Actions.storeValue(me.kworks_count, 1, \"kworks\", cache) // всего кворков (+черновики)\n Actions.storeValue(me.profession, 1, \"profession\", cache) // профессия\n}\nload()",
+      "file": "",
+      "storage": "0",
+      "varName": "",
+      "title": "",
+      "name": "Run Script Too"
+    },
+    {
+      "comment": "WAIT IS REQUIRED",
+      "color": "#ffff00",
+      "name": "Comment"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Профиль Kwork",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "${tempVars(\"avatarURL\")}",
+          "description": "\n",
+          "fields": [
+            {
+              "name": "Никнейм",
+              "value": "${tempVars(\"username\")}",
+              "inline": "true"
+            },
+            {
+              "name": "Имя",
+              "value": "${tempVars(\"fullname\")}",
+              "inline": "true"
+            },
+            {
+              "name": "Профессия",
+              "value": "${tempVars(\"profession\")}\n",
+              "inline": "true"
+            },
+            {
+              "name": "Уровень",
+              "value": "${tempVars(\"rank\")}\n",
+              "inline": "true"
+            },
+            {
+              "name": "Кворков",
+              "value": "${tempVars(\"kworks\")}",
+              "inline": "true"
+            },
+            {
+              "name": "Статус",
+              "value": "${tempVars(\"status\").replace(\"active\", \"Активен\")}",
+              "inline": "true"
+            },
+            {
+              "name": "Описание аккаунта",
+              "value": "${tempVars(\"description\")}",
+              "inline": "false"
+            },
+            {
+              "name": "Положительных отзывов",
+              "value": "${tempVars(\"goodrep\")}\n",
+              "inline": "true"
+            },
+            {
+              "name": "Отрицательных отзывов",
+              "value": "${tempVars(\"badrep\")}",
+              "inline": "true"
+            },
+            {
+              "name": "Рейтинг",
+              "value": "${tempVars(\"rating\")}\n",
+              "inline": "true"
+            }
+          ],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4"
+}
