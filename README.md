@@ -6,8 +6,12 @@ Raw Data of Commands and Events for Discord Bot Maker
   
   · valentines_system - Система валентинок. Средняя по сложности. Картинки с валентинками можете скачать из выводимого сообщения по ссылкам или создать свои.
   Контент для валентинок: https://drive.google.com/file/d/1mwnbUiJWnnSZBwcJFWkljk081DlnMOQJ/view?usp=sharing
+  
+  · kwork - Эмбед с Вашим профилем на Kwork. Все переменные подписаны в действии Run Script Too
 
 # EN
   · giveaway - Giveaway System. Easy but usefull. All in 1 command. Settings for giveaway. Button to view giveaway members. Button for end giveaway (only for admins)
 
   · valentines_system - [available only on russian]
+
+  · kwork - Embed with your Kwork profile. All of variables commented into the Run Script Too action
