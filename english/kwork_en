@@ -1,0 +1,127 @@
+{
+  "name": "kwork",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "dRupw",
+  "actions": [
+    {
+      "comment": "Script with API",
+      "color": "#ffff00",
+      "name": "Comment"
+    },
+    {
+      "comment": "In the script all vars are commented",
+      "color": "#ff0000",
+      "name": "Comment"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "const kwork = require('kwork-api')\n\nasync function load() {\n\t//Third parameter is last 4 numbers of your phone\nlet kw = new kwork('login', 'password', '0000')\n\n let me = await kw.getMe()\n\n Actions.storeValue(me.username, 1, \"username\", cache) // nickname\n Actions.storeValue(me.status, 1, \"status\", cache) // status (active or not)\n Actions.storeValue(me.profilepicture, 1, \"avatarURL\", cache) // avatar\n Actions.storeValue(me.description, 1, \"description\", cache) // account description\n Actions.storeValue(me.fullname, 1, \"fullname\", cache) // your name\n Actions.storeValue(me.level_description, 1, \"rank\", cache) // level\n Actions.storeValue(me.good_reviews, 1, \"goodrep\", cache) // good reviews\n Actions.storeValue(me.bad_reviews, 1, \"badrep\", cache) // bad reviews\n Actions.storeValue(me.rating, 1, \"rating\", cache) // rating ()\n Actions.storeValue(me.kworks_count, 1, \"kworks\", cache) // kworks at all (drafts too)\n Actions.storeValue(me.profession, 1, \"profession\", cache) // your profession\n}\nload()",
+      "file": "",
+      "storage": "0",
+      "varName": "",
+      "title": "",
+      "name": "Run Script Too"
+    },
+    {
+      "comment": "WAIT IS REQUIRED",
+      "color": "#ffff00",
+      "name": "Comment"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Kwork Profile",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "${tempVars(\"avatarURL\")}",
+          "description": "\n",
+          "fields": [
+            {
+              "name": "Username",
+              "value": "${tempVars(\"username\")}",
+              "inline": "true"
+            },
+            {
+              "name": "Fullname",
+              "value": "${tempVars(\"fullname\")}",
+              "inline": "true"
+            },
+            {
+              "name": "Profession",
+              "value": "${tempVars(\"profession\")}\n",
+              "inline": "true"
+            },
+            {
+              "name": "Level",
+              "value": "${tempVars(\"rank\")}\n",
+              "inline": "true"
+            },
+            {
+              "name": "Kworks",
+              "value": "${tempVars(\"kworks\")}",
+              "inline": "true"
+            },
+            {
+              "name": "Status",
+              "value": "${tempVars(\"status\")}",
+              "inline": "true"
+            },
+            {
+              "name": "Account Description",
+              "value": "${tempVars(\"description\")}",
+              "inline": "false"
+            },
+            {
+              "name": "Good Reviews",
+              "value": "${tempVars(\"goodrep\")}\n",
+              "inline": "true"
+            },
+            {
+              "name": "Bad Reviews",
+              "value": "${tempVars(\"badrep\")}",
+              "inline": "true"
+            },
+            {
+              "name": "Rating",
+              "value": "${tempVars(\"rating\")}\n",
+              "inline": "true"
+            }
+          ],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "description": "kwork profile"
+}
