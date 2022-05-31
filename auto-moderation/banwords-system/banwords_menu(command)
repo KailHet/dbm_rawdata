@@ -1,0 +1,195 @@
+{
+  "name": "banwords",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "YfVCT",
+  "actions": [
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [
+        {
+          "name": "Добавить слово",
+          "type": "PRIMARY",
+          "id": "msg-button-ac2210b",
+          "row": "",
+          "url": "",
+          "emoji": "",
+          "mode": "PERSONAL",
+          "time": "",
+          "actions": [
+            {
+              "inputs": [
+                {
+                  "label": "Слово",
+                  "uniqID": "msg-modal-6ee6488",
+                  "type": "LONG",
+                  "min": "1",
+                  "max": "4000",
+                  "val": "",
+                  "plholder": "Каждый бан-ворд через запятую!",
+                  "req": "true",
+                  "ssd": "${tempVars(\"word\")[0]}"
+                }
+              ],
+              "title": "Добавление бан-ворда",
+              "uniq": "word",
+              "name": "Show Modal Window"
+            },
+            {
+              "member": "1",
+              "varName": "",
+              "info": "21",
+              "storage": "1",
+              "varName2": "tag",
+              "name": "Store Member Info"
+            },
+            {
+              "member": "1",
+              "varName": "",
+              "info": "16",
+              "storage": "1",
+              "varName2": "ava",
+              "name": "Store Member Info"
+            },
+            {
+              "behavior": "0",
+              "interpretation": "1",
+              "code": "",
+              "file": "./scripts/banwords_add.js",
+              "storage": "0",
+              "varName": "",
+              "title": "",
+              "name": "Run Script Too"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Бан-ворды добавлены!",
+                  "url": "",
+                  "color": "5539cc",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "",
+                  "fields": [],
+                  "author": "${tempVars(\"tag\")}",
+                  "authorUrl": "",
+                  "authorIcon": "${tempVars(\"ava\")}",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": false,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ]
+        },
+        {
+          "name": "Список бан-вордов",
+          "type": "PRIMARY",
+          "id": "msg-button-6ad98f4",
+          "row": "",
+          "url": "",
+          "emoji": "",
+          "mode": "MULTI",
+          "time": "",
+          "actions": [
+            {
+              "filePath": "./data/banwords.json",
+              "jsonPath": "list",
+              "task": "0",
+              "text": "",
+              "from": "0",
+              "index": "0",
+              "varName": "list",
+              "storage": "1",
+              "name": "Store Custom Data"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Список бан-вордов",
+                  "url": "",
+                  "color": "5539cc",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "${tempVars(\"list\").toString().replaceAll(\",\", \"\\n\")}",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ]
+        }
+      ],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Выбери опцию",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4"
+}
