@@ -1,0 +1,70 @@
+{
+  "name": "Stream MSGs",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "yRLyr",
+  "actions": [
+    {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "// Config for the Stream MSGs event.\n\nconst target_channel = `967785250954563614` // channel where messages will be taken from\nconst your_channel = `909839757092196382` // channel where messages will be sent\nconst words = ['bad', 'word'] // keywords to search messages. Example: ['bad', 'word']\nconst use_words = true // false - if you want to stream ALL msgs. true - use const words to search words :/\n\n// DONT TOUCH (saving variables)\nActions.storeValue(target_channel, 1, \"target_channel\", cache)\nActions.storeValue(your_channel, 1, \"your_channel\", cache)\nActions.storeValue(words, 1, \"words\", cache)\nActions.storeValue(use_words, 1, \"use_words\", cache)\n\n\n// Maded by KailHet#9182",
+      "file": "",
+      "storage": "0",
+      "varName": "",
+      "title": "<font color=\"yellow\"> config </font>",
+      "name": "Run Script Too"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "chan_id",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "1",
+      "varName": "chan_id",
+      "comparison": "1",
+      "value": "${tempVars(\"target_channel\")}",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "1"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "message": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "msg_text",
+      "name": "Store Message Info"
+    },
+    {
+      "channel": "101",
+      "varName": "${tempVars(\"your_channel\")}",
+      "info": "0",
+      "storage": "1",
+      "varName2": "channel",
+      "name": "Store Channel Info"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "const { MessageEmbed } = require(\"discord.js\")\nconst use_words = tempVars(\"use_words\")\nconst words = tempVars(\"words\")\nconst channel = tempVars(\"channel\")\n\nif (use_words == true) {\n  for (i = 0; i < words.length; i++) {\n    if (msg.content.includes(words[i])) {\n      let tag = msg.author.tag\n      let avatar = msg.author.displayAvatarURL || msg.author.defaultAvatarURL\n      const embed = new MessageEmbed()\n      .setDescription(msg.content)\n      .setAuthor({ name: tag, iconURL: avatar})\n      channel.send({embeds: [embed]})\n    }\n  }\n} else {\n  let tag = msg.author.tag\n  let avatar = msg.author.displayAvatarURL || msg.author.defaultAvatarURL\n  const embed = new MessageEmbed()\n  .setDescription(msg.content)\n  .setAuthor({ name: tag, iconURL: avatar})\n  channel.send({embeds: [embed]})\n}",
+      "file": "",
+      "storage": "0",
+      "varName": "",
+      "title": "<font color=\"red\">script</font>",
+      "name": "Run Script Too"
+    }
+  ],
+  "comType": "3"
+}
