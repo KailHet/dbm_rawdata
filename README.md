@@ -8,6 +8,8 @@ Raw Data of Commands and Events for Discord Bot Maker
   Контент для валентинок: https://drive.google.com/file/d/1mwnbUiJWnnSZBwcJFWkljk081DlnMOQJ/view?usp=sharing
   
   · kwork - Эмбед с Вашим профилем на Kwork. Все переменные подписаны в действии Run Script Too
+  
+  · Stream MSGs - Бот будет пересылать сообщения из определенного канала в ВАШ, на любой сервер, на котором он есть. Есть настройка по ключевым словам
 
 # EN
   · giveaway - Giveaway System. Easy but usefull. All in 1 command. Settings for giveaway. Button to view giveaway members. Button for end giveaway (only for admins)
@@ -15,3 +17,5 @@ Raw Data of Commands and Events for Discord Bot Maker
   · valentines_system - [available only on russian]
 
   · kwork - Embed with your Kwork profile. All of variables commented into the Run Script Too action
+  
+  · Stream MSGs - Bot will stream messages from one channel to another. Any server. Setting by keywords.
