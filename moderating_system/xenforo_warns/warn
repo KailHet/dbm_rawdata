@@ -1,0 +1,520 @@
+{
+  "name": "warn",
+  "permissions": "ADMINISTRATOR",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "SdMFy",
+  "actions": [
+    {
+      "member": "5",
+      "varName": "user",
+      "permission": "ADMINISTRATOR",
+      "branch": {
+        "iftrue": "4",
+        "iffalse": "0",
+        "iftrueVal": "admin"
+      },
+      "name": "Check Member Permissions"
+    },
+    {
+      "title": "Предупредить пользователя",
+      "textInputs": [
+        {
+          "name": "Баллы нарушений",
+          "placeholder": "",
+          "minLength": "1",
+          "maxLength": "2",
+          "id": "balls",
+          "row": "",
+          "style": "SHORT",
+          "required": "true"
+        },
+        {
+          "name": "Причина",
+          "placeholder": "Он меня обидел :(",
+          "minLength": "1",
+          "maxLength": "1000",
+          "id": "reason",
+          "row": "",
+          "style": "PARAGRAPH",
+          "required": "true"
+        }
+      ],
+      "name": "Show Modal"
+    },
+    {
+      "member": "5",
+      "varName": "user",
+      "info": "1",
+      "storage": "1",
+      "varName2": "user",
+      "name": "Store Member Info"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "const date = new Date()\nActions.storeValue(date, 1, \"date\", cache)",
+      "file": "",
+      "storage": "0",
+      "varName": "",
+      "title": "",
+      "name": "Run Script Too"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "sourceDate": "${tempVars(\"date\")}",
+      "dateLanguage": "ru",
+      "modeStorage": "1",
+      "info": "0",
+      "buildInput": "DD MMM YYYY",
+      "storage": "1",
+      "varName": "date",
+      "name": "Store Date Info Plus"
+    },
+    {
+      "filePath": "./data/users.json",
+      "value": "",
+      "branch": {
+        "iftrue": "3",
+        "iffalse": "0",
+        "iftrueVal": "1"
+      },
+      "jsonPath": "${tempVars(\"user\")}",
+      "comparison": "0",
+      "varName": null,
+      "storage": null,
+      "name": "Check Custom Data"
+    },
+    {
+      "expert?": "false",
+      "filePath": "./data/users.json",
+      "jsonPath": "",
+      "filePathExpert": "./data/",
+      "type": "0",
+      "title": "${tempVars(\"user\")}",
+      "val": "+1",
+      "task": "0",
+      "index": "N",
+      "indexcomparison": "-1",
+      "ifindexmorethan1": "0",
+      "indexval": "",
+      "indexkey": "",
+      "indexstorage": "1",
+      "indexvarName": "",
+      "valuesExpert": [],
+      "name": "Control Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "value": "",
+      "branch": {
+        "iftrue": "3",
+        "iffalse": "0",
+        "iftrueVal": "6"
+      },
+      "jsonPath": "${tempVars(\"user\")}/Warns",
+      "comparison": "0",
+      "varName": null,
+      "storage": null,
+      "name": "Check Custom Data"
+    },
+    {
+      "expert?": "false",
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}",
+      "filePathExpert": "./data/",
+      "type": "0",
+      "title": "Warns",
+      "val": "+1",
+      "task": "0",
+      "index": "N",
+      "indexcomparison": "-1",
+      "ifindexmorethan1": "0",
+      "indexval": "",
+      "indexkey": "",
+      "indexstorage": "1",
+      "indexvarName": "",
+      "valuesExpert": [],
+      "name": "Control Custom Data"
+    },
+    {
+      "expert?": "false",
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}/Warns",
+      "filePathExpert": "./data/",
+      "type": "1",
+      "title": "List",
+      "val": "+1",
+      "task": "0",
+      "index": "N",
+      "indexcomparison": "-1",
+      "ifindexmorethan1": "0",
+      "indexval": "",
+      "indexkey": "",
+      "indexstorage": "1",
+      "indexvarName": "",
+      "valuesExpert": [],
+      "name": "Control Custom Data"
+    },
+    {
+      "expert?": "false",
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}/Warns",
+      "filePathExpert": "./data/",
+      "type": "2",
+      "title": "Balls",
+      "val": "${tempVars(\"balls\")}",
+      "task": "0",
+      "index": "N",
+      "indexcomparison": "-1",
+      "ifindexmorethan1": "0",
+      "indexval": "",
+      "indexkey": "",
+      "indexstorage": "1",
+      "indexvarName": "",
+      "valuesExpert": [],
+      "name": "Control Custom Data"
+    },
+    {
+      "expert?": "false",
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}/Warns",
+      "filePathExpert": "./data/",
+      "type": "2",
+      "title": "Warns",
+      "val": "1",
+      "task": "0",
+      "index": "N",
+      "indexcomparison": "-1",
+      "ifindexmorethan1": "0",
+      "indexval": "",
+      "indexkey": "",
+      "indexstorage": "1",
+      "indexvarName": "",
+      "valuesExpert": [],
+      "name": "Control Custom Data"
+    },
+    {
+      "expert?": "false",
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}/Warns/List",
+      "filePathExpert": "./data/",
+      "type": "2",
+      "title": "",
+      "val": "Предупреждение: ${tempVars(\"reason\")} | Баллы: ${tempVars(\"balls\")} | Дата: ${tempVars(\"date\")} | Выдано: ${member.displayName}",
+      "task": "0",
+      "index": "N",
+      "indexcomparison": "-1",
+      "ifindexmorethan1": "0",
+      "indexval": "",
+      "indexkey": "",
+      "indexstorage": "1",
+      "indexvarName": "",
+      "valuesExpert": [],
+      "name": "Control Custom Data"
+    },
+    {
+      "anchorName": "msg",
+      "name": "Go To Action Anchor"
+    },
+    {
+      "comment": "---",
+      "color": "#ffff00",
+      "name": "Comment"
+    },
+    {
+      "expert?": "false",
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}/Warns",
+      "filePathExpert": "./data/",
+      "type": "2",
+      "title": "Warns",
+      "val": "+1",
+      "task": "0",
+      "index": "N",
+      "indexcomparison": "-1",
+      "ifindexmorethan1": "0",
+      "indexval": "",
+      "indexkey": "",
+      "indexstorage": "1",
+      "indexvarName": "",
+      "valuesExpert": [],
+      "name": "Control Custom Data"
+    },
+    {
+      "expert?": "false",
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}/Warns",
+      "filePathExpert": "./data/",
+      "type": "2",
+      "title": "Balls",
+      "val": "+${tempVars(\"balls\")}",
+      "task": "0",
+      "index": "N",
+      "indexcomparison": "-1",
+      "ifindexmorethan1": "0",
+      "indexval": "",
+      "indexkey": "",
+      "indexstorage": "1",
+      "indexvarName": "",
+      "valuesExpert": [],
+      "name": "Control Custom Data"
+    },
+    {
+      "expert?": "false",
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}/Warns/List",
+      "filePathExpert": "./data/",
+      "type": "2",
+      "title": "",
+      "val": "Причина: ${tempVars(\"reason\")} | Баллы: ${tempVars(\"balls\")} | Дата: ${tempVars(\"date\")} | Выдал: ${member.displayName}",
+      "task": "0",
+      "index": "N",
+      "indexcomparison": "-1",
+      "ifindexmorethan1": "0",
+      "indexval": "",
+      "indexkey": "",
+      "indexstorage": "1",
+      "indexvarName": "",
+      "valuesExpert": [],
+      "name": "Control Custom Data"
+    },
+    {
+      "anchorName": "msg",
+      "name": "Action Anchor"
+    },
+    {
+      "filePath": "./data/users.json",
+      "value": "9",
+      "branch": {
+        "iftrue": "99",
+        "iffalse": "0",
+        "iftrueActions": [
+          {
+            "filePath": "./data/users.json",
+            "jsonPath": "${tempVars(\"user\")}/Warns/List",
+            "task": "0",
+            "text": "",
+            "from": "0",
+            "index": "0",
+            "varName": "list",
+            "storage": "1",
+            "name": "Store Custom Data"
+          },
+          {
+            "member": "5",
+            "varName": "user",
+            "time": "2678400",
+            "reason": "Достигнуто максимальное кол-во предупреждений!",
+            "name": "Timeout Member"
+          },
+          {
+            "channel": "8",
+            "varName": "user",
+            "message": "Вам был выдан таймаут на месяц.\nДостигнуто максимальное кол-во баллов нарушений.\n\nВаши предупреждения:\n${tempVars(\"list\").toString().replaceAll(',','\\n')}",
+            "buttons": [],
+            "selectMenus": [],
+            "attachments": [],
+            "embeds": [],
+            "reply": true,
+            "ephemeral": false,
+            "tts": false,
+            "overwrite": false,
+            "dontSend": false,
+            "editMessage": "0",
+            "editMessageVarName": "",
+            "storage": "0",
+            "varName2": "",
+            "name": "Send Message"
+          },
+          {
+            "channel": "103",
+            "varName": "863127513522110484",
+            "message": "Пользователь ${slashParams(\"user\")} получил таймаут на месяц.\nДостигнуто максимальное кол-во баллов нарушений.\n\nПредупреждения пользователя:\n${tempVars(\"list\").toString().replaceAll(',','\\n')}",
+            "buttons": [],
+            "selectMenus": [],
+            "attachments": [],
+            "embeds": [],
+            "reply": true,
+            "ephemeral": false,
+            "tts": false,
+            "overwrite": false,
+            "dontSend": false,
+            "editMessage": "0",
+            "editMessageVarName": "",
+            "storage": "0",
+            "varName2": "",
+            "name": "Send Message"
+          }
+        ]
+      },
+      "jsonPath": "${tempVars(\"user\")}/Warns/Balls",
+      "comparison": "3",
+      "varName": null,
+      "storage": null,
+      "name": "Check Custom Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Предупреждение выдано!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Пользователю <@${tempVars(\"user\")}> выдано предупреждение.\nПричина: ${tempVars(\"reason\")}\nБаллы нарушений: ${tempVars(\"balls\")}\n\nЧтобы снять или изменить предупреждение, пропишите команду `/check [пользователь]`",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "103",
+      "varName": "863127513522110484",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Предупреждение выдано!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Пользователю <@${tempVars(\"user\")}> выдано предупреждение.\nПричина: ${tempVars(\"reason\")}\nБаллы нарушений: ${tempVars(\"balls\")}\nВыдано: ${member.displayName}\n\nЧтобы снять или изменить предупреждение, пропишите команду `/check [пользователь]`",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": false,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "channel": "8",
+      "varName": "user",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Вам выдано предупреждение!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Причина: ${tempVars(\"reason\")}\nБаллы нарушений: ${tempVars(\"balls\")}\nВыдано: ${member.displayName}\n\nЧтобы проверить свои предупреждения - пропишите команду `/check [пользователь]` на сервере **NetZONA**",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchorName": "admin",
+      "name": "Action Anchor"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Ошибка!",
+          "url": "",
+          "color": "9b111e",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Вы не можете выдать предупреждение Администратору!",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "description": "Предупредить пользователя",
+  "parameters": [
+    {
+      "name": "user",
+      "description": "Пользователь",
+      "type": "USER",
+      "required": true,
+      "choices": null
+    }
+  ]
+}
