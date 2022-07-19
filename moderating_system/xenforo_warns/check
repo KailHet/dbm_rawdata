@@ -1,0 +1,637 @@
+{
+  "name": "check",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "dRsOG",
+  "actions": [
+    {
+      "member": "5",
+      "varName": "user",
+      "info": "1",
+      "storage": "1",
+      "varName2": "user",
+      "name": "Store Member Info"
+    },
+    {
+      "filePath": "./data/users.json",
+      "value": "",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "99",
+        "iffalseActions": [
+          {
+            "filePath": "./data/users.json",
+            "value": "",
+            "branch": {
+              "iftrue": "0",
+              "iffalse": "2",
+              "iffalseVal": "1"
+            },
+            "jsonPath": "${tempVars(\"user\")}",
+            "comparison": "0",
+            "varName": null,
+            "storage": null,
+            "name": "Check Custom Data"
+          },
+          {
+            "expert?": "false",
+            "filePath": "./data/users.json",
+            "jsonPath": "",
+            "filePathExpert": "./data/",
+            "type": "0",
+            "title": "${tempVars(\"user\")}",
+            "val": "",
+            "task": "0",
+            "index": "N",
+            "indexcomparison": "-1",
+            "ifindexmorethan1": "0",
+            "indexval": "",
+            "indexkey": "",
+            "indexstorage": "1",
+            "indexvarName": "",
+            "valuesExpert": [],
+            "name": "Control Custom Data"
+          },
+          {
+            "expert?": "false",
+            "filePath": "./data/users.json",
+            "jsonPath": "${tempVars(\"user\")}",
+            "filePathExpert": "./data/",
+            "type": "0",
+            "title": "Warns",
+            "val": "",
+            "task": "0",
+            "index": "N",
+            "indexcomparison": "-1",
+            "ifindexmorethan1": "0",
+            "indexval": "",
+            "indexkey": "",
+            "indexstorage": "1",
+            "indexvarName": "",
+            "valuesExpert": [],
+            "name": "Control Custom Data"
+          },
+          {
+            "expert?": "false",
+            "filePath": "./data/users.json",
+            "jsonPath": "${tempVars(\"user\")}/Warns",
+            "filePathExpert": "./data/",
+            "type": "1",
+            "title": "List",
+            "val": "",
+            "task": "0",
+            "index": "N",
+            "indexcomparison": "-1",
+            "ifindexmorethan1": "0",
+            "indexval": "",
+            "indexkey": "",
+            "indexstorage": "1",
+            "indexvarName": "",
+            "valuesExpert": [],
+            "name": "Control Custom Data"
+          },
+          {
+            "expert?": "false",
+            "filePath": "./data/users.json",
+            "jsonPath": "${tempVars(\"user\")}/Warns",
+            "filePathExpert": "./data/",
+            "type": "1",
+            "title": "ListOutdated",
+            "val": "",
+            "task": "0",
+            "index": "N",
+            "indexcomparison": "-1",
+            "ifindexmorethan1": "0",
+            "indexval": "",
+            "indexkey": "",
+            "indexstorage": "1",
+            "indexvarName": "",
+            "valuesExpert": [],
+            "name": "Control Custom Data"
+          },
+          {
+            "expert?": "false",
+            "filePath": "./data/users.json",
+            "jsonPath": "${tempVars(\"user\")}/Warns",
+            "filePathExpert": "./data/",
+            "type": "2",
+            "title": "Balls",
+            "val": "0",
+            "task": "0",
+            "index": "N",
+            "indexcomparison": "-1",
+            "ifindexmorethan1": "0",
+            "indexval": "",
+            "indexkey": "",
+            "indexstorage": "1",
+            "indexvarName": "",
+            "valuesExpert": [],
+            "name": "Control Custom Data"
+          },
+          {
+            "expert?": "false",
+            "filePath": "./data/users.json",
+            "jsonPath": "${tempVars(\"user\")}/Warns",
+            "filePathExpert": "./data/",
+            "type": "2",
+            "title": "Warns",
+            "val": "0",
+            "task": "0",
+            "index": "N",
+            "indexcomparison": "-1",
+            "ifindexmorethan1": "0",
+            "indexval": "",
+            "indexkey": "",
+            "indexstorage": "1",
+            "indexvarName": "",
+            "valuesExpert": [],
+            "name": "Control Custom Data"
+          }
+        ]
+      },
+      "jsonPath": "${tempVars(\"user\")}/Warns",
+      "comparison": "0",
+      "varName": null,
+      "storage": null,
+      "name": "Check Custom Data"
+    },
+    {
+      "member": "5",
+      "varName": "user",
+      "info": "21",
+      "storage": "1",
+      "varName2": "tag",
+      "name": "Store Member Info"
+    },
+    {
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}/Warns/Warns",
+      "task": "0",
+      "text": "",
+      "from": "0",
+      "index": "0",
+      "varName": "warns",
+      "storage": "1",
+      "name": "Store Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}/Warns/Balls",
+      "task": "0",
+      "text": "",
+      "from": "0",
+      "index": "0",
+      "varName": "balls",
+      "storage": "1",
+      "name": "Store Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}/Warns/List",
+      "task": "0",
+      "text": "",
+      "from": "0",
+      "index": "0",
+      "varName": "list",
+      "storage": "1",
+      "name": "Store Custom Data"
+    },
+    {
+      "filePath": "./data/users.json",
+      "jsonPath": "${tempVars(\"user\")}/Warns/ListOutdated",
+      "task": "0",
+      "text": "",
+      "from": "0",
+      "index": "0",
+      "varName": "listOutdated",
+      "storage": "1",
+      "name": "Store Custom Data"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "const list = tempVars(\"list\")\nconst list_outdated = tempVars(\"listOutdated\")\n\nactive = ``\noutdated = ``\nasync function load() {\nlist.forEach(function(item, index, array) {\nactive += `${index+1}. ${item}\\n`\n})\nlist_outdated.forEach(function(item, index, array) {\noutdated += `${index+1}. ${item}\\n`\n})\nActions.storeValue(active, 1, \"active\", cache)\nActions.storeValue(outdated, 1, \"outdated\", cache)\n}\nload()",
+      "file": "",
+      "storage": "0",
+      "varName": "",
+      "title": "",
+      "name": "Run Script Too"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [
+        {
+          "name": "Удалить предупреждение",
+          "type": "PRIMARY",
+          "id": "msg-button-f813a59",
+          "row": "",
+          "url": "",
+          "emoji": "",
+          "mode": "PERSONAL",
+          "time": "",
+          "actions": [
+            {
+              "member": "1",
+              "varName": "",
+              "permission": "ADMINISTRATOR",
+              "branch": {
+                "iftrue": "0",
+                "iffalse": "4",
+                "iffalseVal": "perms"
+              },
+              "name": "Check Member Permissions"
+            },
+            {
+              "title": "Удаление предупреждения",
+              "textInputs": [
+                {
+                  "name": "Номер предупреждения",
+                  "placeholder": "",
+                  "minLength": "0",
+                  "maxLength": "2",
+                  "id": "del_warn",
+                  "row": "",
+                  "style": "SHORT",
+                  "required": "true"
+                },
+                {
+                  "name": "Причина",
+                  "placeholder": "Истекло",
+                  "minLength": "0",
+                  "maxLength": "1000",
+                  "id": "del_reason",
+                  "row": "",
+                  "style": "SHORT",
+                  "required": "false"
+                }
+              ],
+              "name": "Show Modal"
+            },
+            {
+              "storage": "1",
+              "varName": "del_warn",
+              "comparison": "3",
+              "value": "1",
+              "branch": {
+                "iftrue": "4",
+                "iffalse": "0",
+                "iftrueVal": "less_than_1"
+              },
+              "name": "Check Variable"
+            },
+            {
+              "storage": "1",
+              "varName": "del_warn",
+              "comparison": "4",
+              "value": "${tempVars(\"list\").length}",
+              "branch": {
+                "iftrue": "4",
+                "iffalse": "0",
+                "iftrueVal": "less_than_1"
+              },
+              "name": "Check Variable"
+            },
+            {
+              "behavior": "0",
+              "interpretation": "1",
+              "code": "",
+              "file": "./scripts/nz_del_warn.js",
+              "storage": "0",
+              "varName": "",
+              "title": "",
+              "name": "Run Script Too"
+            },
+            {
+              "time": "1",
+              "measurement": "1",
+              "name": "Wait"
+            },
+            {
+              "storage": "1",
+              "varName": "warns",
+              "comparison": "3",
+              "value": "1",
+              "branch": {
+                "iftrue": "4",
+                "iffalse": "0",
+                "iftrueVal": "interesting"
+              },
+              "name": "Check Variable"
+            },
+            {
+              "storage": "1",
+              "varName": "balls",
+              "comparison": "3",
+              "value": "1",
+              "branch": {
+                "iftrue": "4",
+                "iffalse": "0",
+                "iftrueVal": "interesting"
+              },
+              "name": "Check Variable"
+            },
+            {
+              "filePath": "./data/users.json",
+              "value": "",
+              "branch": {
+                "iftrue": "3",
+                "iffalse": "0",
+                "iftrueVal": "1"
+              },
+              "jsonPath": "${tempVars(\"user\")}/Warns/ListOutdated",
+              "comparison": "0",
+              "varName": null,
+              "storage": null,
+              "name": "Check Custom Data"
+            },
+            {
+              "expert?": "false",
+              "filePath": "./data/users.json",
+              "jsonPath": "${tempVars(\"user\")}/Warns",
+              "filePathExpert": "./data/",
+              "type": "1",
+              "title": "ListOutdated",
+              "val": "",
+              "task": "0",
+              "index": "N",
+              "indexcomparison": "-1",
+              "ifindexmorethan1": "0",
+              "indexval": "",
+              "indexkey": "",
+              "indexstorage": "1",
+              "indexvarName": "",
+              "valuesExpert": [],
+              "name": "Control Custom Data"
+            },
+            {
+              "expert?": "false",
+              "filePath": "./data/users.json",
+              "jsonPath": "${tempVars(\"user\")}/Warns/ListOutdated",
+              "filePathExpert": "./data/",
+              "type": "2",
+              "title": "",
+              "val": "${tempVars(\"deleted_warn\")}",
+              "task": "0",
+              "index": "N",
+              "indexcomparison": "-1",
+              "ifindexmorethan1": "0",
+              "indexval": "",
+              "indexkey": "",
+              "indexstorage": "1",
+              "indexvarName": "",
+              "valuesExpert": [],
+              "name": "Control Custom Data"
+            },
+            {
+              "expert?": "false",
+              "filePath": "./data/users.json",
+              "jsonPath": "${tempVars(\"user\")}/Warns",
+              "filePathExpert": "./data/",
+              "type": "2",
+              "title": "Warns",
+              "val": "-1",
+              "task": "0",
+              "index": "N",
+              "indexcomparison": "-1",
+              "ifindexmorethan1": "0",
+              "indexval": "",
+              "indexkey": "",
+              "indexstorage": "1",
+              "indexvarName": "",
+              "valuesExpert": [],
+              "name": "Control Custom Data"
+            },
+            {
+              "expert?": "false",
+              "filePath": "./data/users.json",
+              "jsonPath": "${tempVars(\"user\")}/Warns",
+              "filePathExpert": "./data/",
+              "type": "2",
+              "title": "Balls",
+              "val": "-${tempVars(\"warn_balls\")}",
+              "task": "0",
+              "index": "N",
+              "indexcomparison": "-1",
+              "ifindexmorethan1": "0",
+              "indexval": "",
+              "indexkey": "",
+              "indexstorage": "1",
+              "indexvarName": "",
+              "valuesExpert": [],
+              "name": "Control Custom Data"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Предупреждение удалено!",
+                  "url": "",
+                  "color": "5539cc",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "name": "End Action Sequence"
+            },
+            {
+              "anchorName": "perms",
+              "name": "Action Anchor"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "У Вас недостаточно прав!",
+                  "url": "",
+                  "color": "9b111e",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "name": "End Action Sequence"
+            },
+            {
+              "anchorName": "less_than_1",
+              "name": "Action Anchor"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Такого предупреждения не существует!",
+                  "url": "",
+                  "color": "9b111e",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "name": "End Action Sequence"
+            },
+            {
+              "anchorName": "interesting",
+              "name": "Action Anchor"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Странная ошибка...",
+                  "url": "",
+                  "color": "9b111e",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Пук пук, ты получил ахуенную ошибку, а значит что-то сломалось...\nВ общем, у юзера нет предупреждений/баллов предупреждений, это пиздец, в общем, но желаю удачи в исправлении, пиши KailHet#9182",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ]
+        }
+      ],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Предупреждения пользователя ${tempVars(\"tag\")}",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "**Предупреждения** ${tempVars(\"warns\") || '0'}/${tempVars(\"balls\") || '0'}\n\n**Активные нарушения**\n${tempVars(\"active\").replace(\"undefined\", '') || 'Нет предупреждений'}\n\n**История нарушений**\n${tempVars(\"outdated\").replace(\"undefined\", '') || 'Нет предупреждений'}",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "parameters": [
+    {
+      "name": "user",
+      "description": "Пользователь",
+      "type": "USER",
+      "required": true,
+      "choices": null
+    }
+  ],
+  "description": "Предупреждения пользователя"
+}
