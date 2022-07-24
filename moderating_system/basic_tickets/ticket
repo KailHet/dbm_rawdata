@@ -1,0 +1,268 @@
+{
+  "name": "ticket",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "PVQkv",
+  "actions": [
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [
+        {
+          "name": "Открыть тикет",
+          "type": "PRIMARY",
+          "id": "msg-button-52134ed",
+          "row": "",
+          "url": "",
+          "emoji": "",
+          "mode": "PERSISTENT",
+          "time": "",
+          "actions": [
+            {
+              "member": "1",
+              "varName": "",
+              "info": "1",
+              "storage": "1",
+              "varName2": "user",
+              "name": "Store Member Info"
+            },
+            {
+              "title": "Открыть тикет",
+              "textInputs": [
+                {
+                  "name": "Заголовок",
+                  "placeholder": "",
+                  "minLength": "0",
+                  "maxLength": "256",
+                  "id": "title",
+                  "row": "",
+                  "style": "SHORT",
+                  "required": "true"
+                },
+                {
+                  "name": "Описание",
+                  "placeholder": "Опишите проблему",
+                  "minLength": "1",
+                  "maxLength": "4000",
+                  "id": "desc",
+                  "row": "",
+                  "style": "PARAGRAPH",
+                  "required": "true"
+                }
+              ],
+              "name": "Show Modal"
+            },
+            {
+              "storage": "1",
+              "varName": "code",
+              "min": "100000",
+              "max": "999999",
+              "name": "Generate Random Number"
+            },
+            {
+              "expert?": "true",
+              "filePath": "./data/",
+              "jsonPath": "",
+              "filePathExpert": "./data/tickets.json",
+              "type": "0",
+              "title": "",
+              "val": "",
+              "task": "0",
+              "index": "N",
+              "indexcomparison": "-1",
+              "ifindexmorethan1": "0",
+              "indexval": "",
+              "indexkey": "",
+              "indexstorage": "1",
+              "indexvarName": "",
+              "valuesExpert": [
+                {
+                  "key": "${tempVars(\"code\")}",
+                  "task2": "{+}",
+                  "value": "{}",
+                  "jsonPath2": "json"
+                },
+                {
+                  "key": "user",
+                  "task2": "{+}",
+                  "value": "${tempVars(\"user\")}",
+                  "jsonPath2": "json?.[`${tempVars(\"code\")}`]"
+                },
+                {
+                  "key": "desc",
+                  "task2": "{+}",
+                  "value": "${tempVars(\"desc\")}",
+                  "jsonPath2": "json?.[`${tempVars(\"code\")}`]"
+                },
+                {
+                  "key": "title",
+                  "task2": "{+}",
+                  "value": "${tempVars(\"title\")}",
+                  "jsonPath2": "json?.[`${tempVars(\"code\")}`]"
+                },
+                {
+                  "key": "status",
+                  "task2": "{+}",
+                  "value": "open",
+                  "jsonPath2": "json?.[`${tempVars(\"code\")}`]"
+                }
+              ],
+              "name": "Control Custom Data"
+            },
+            {
+              "comment": "Измени категорию ",
+              "color": "#ffff00",
+              "name": "Comment"
+            },
+            {
+              "channelName": "тикет-${tempVars(\"code\")}",
+              "topic": "",
+              "position": "",
+              "storage": "1",
+              "varName": "channel",
+              "categoryID": "983467678859685978",
+              "reason": "",
+              "name": "Create Text Channel"
+            },
+            {
+              "storage": "3",
+              "varName": "channel",
+              "permission": "VIEW_CHANNEL",
+              "state": "1",
+              "reason": "",
+              "name": "Set Channel Permissions"
+            },
+            {
+              "channel": "3",
+              "varName": "channel",
+              "member": "1",
+              "varName2": "",
+              "permission": "VIEW_CHANNEL",
+              "state": "0",
+              "reason": "",
+              "name": "Set Member Channel Perms"
+            },
+            {
+              "comment": "Измени роль хелпера",
+              "color": "#ffff00",
+              "name": "Comment"
+            },
+            {
+              "channel": "3",
+              "varName": "channel",
+              "role": "101",
+              "varName2": "989151880649269248",
+              "permission": "VIEW_CHANNEL",
+              "state": "0",
+              "reason": "",
+              "name": "Set Role Channel Perms"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Тикет создан!",
+                  "url": "",
+                  "color": "5539cc",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Он находится тут: ${tempVars(\"channel\")}",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "channel": "5",
+              "varName": "channel",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "${tempVars(\"title\")}",
+                  "url": "",
+                  "color": "5539cc",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "${tempVars(\"desc\")}",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "Ticket ID: ${tempVars(\"code\")}",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ]
+        }
+      ],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Открыть тикет",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Чтобы открыть тикет - нажмите на кнопку ниже.",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": false,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "description": "asd"
+}
