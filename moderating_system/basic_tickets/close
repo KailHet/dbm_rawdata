@@ -1,0 +1,124 @@
+{
+  "name": "close",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "UtZJf",
+  "actions": [
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "chan",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "1",
+      "varName": "chan",
+      "comparison": "5",
+      "value": "тикет",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "1"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "17",
+      "storage": "1",
+      "varName2": "roles",
+      "name": "Store Member Info"
+    },
+    {
+      "list": "7",
+      "varName": "roles",
+      "tempVarName": "role",
+      "type": "true",
+      "actions": [
+        {
+          "role": "3",
+          "varName": "role",
+          "info": "1",
+          "storage": "1",
+          "varName2": "id",
+          "name": "Store Role Info"
+        },
+        {
+          "comment": "Измени ид роли",
+          "color": "#ffff00",
+          "name": "Comment"
+        },
+        {
+          "storage": "1",
+          "varName": "id",
+          "comparison": "1",
+          "value": "989151880649269248",
+          "branch": {
+            "iftrue": "0",
+            "iffalse": "1"
+          },
+          "name": "Check Variable"
+        },
+        {
+          "channel": "0",
+          "varName": "",
+          "message": "",
+          "buttons": [
+            {
+              "name": "Закрыть тикет",
+              "type": "PRIMARY",
+              "id": "msg-button-3e9f500",
+              "row": "",
+              "url": "",
+              "emoji": "",
+              "mode": "PERSONAL",
+              "time": "",
+              "actions": [
+                {
+                  "storage": "0",
+                  "varName": "",
+                  "reason": "",
+                  "name": "Delete Channel"
+                }
+              ]
+            }
+          ],
+          "selectMenus": [],
+          "attachments": [],
+          "embeds": [
+            {
+              "title": "Закрыть тикет",
+              "url": "",
+              "color": "5539cc",
+              "timestamp": "false",
+              "imageUrl": "",
+              "thumbUrl": "",
+              "description": "Чтобы закрыть тикет - нажмите на кнопку ниже",
+              "fields": [],
+              "author": "",
+              "authorUrl": "",
+              "authorIcon": "",
+              "footerText": "",
+              "footerIconUrl": ""
+            }
+          ],
+          "reply": true,
+          "ephemeral": true,
+          "tts": false,
+          "overwrite": false,
+          "dontSend": false,
+          "editMessage": "0",
+          "editMessageVarName": "",
+          "storage": "0",
+          "varName2": "",
+          "name": "Send Message"
+        }
+      ],
+      "name": "Loop Through List"
+    }
+  ],
+  "comType": "4"
+}
