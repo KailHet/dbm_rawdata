@@ -1,0 +1,720 @@
+{
+  "name": "idea",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "UfNle",
+  "actions": [
+    {
+      "title": "Предложение по боту",
+      "textInputs": [
+        {
+          "name": "Текст предложения",
+          "placeholder": "",
+          "minLength": "0",
+          "maxLength": "4000",
+          "id": "text",
+          "row": "",
+          "style": "PARAGRAPH",
+          "required": "true"
+        },
+        {
+          "name": "Уведомить о решении?",
+          "placeholder": "\"да\" или \"нет\"",
+          "minLength": "2",
+          "maxLength": "3",
+          "id": "notify",
+          "row": "",
+          "style": "SHORT",
+          "required": "true"
+        }
+      ],
+      "name": "Show Modal"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "1",
+      "code": "let channel = `1006194518753804289` // ID канала, в который отправляется идея\n\n// Сохранение переменных //\nActions.storeValue(channel, 1, \"channel\", cache)\n",
+      "file": "",
+      "storage": "0",
+      "varName": "",
+      "title": "<font color=red>конфиг тут",
+      "name": "Run Script Too"
+    },
+    {
+      "time": "1",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "min": "100000",
+      "max": "999999",
+      "name": "Generate Random Number"
+    },
+    {
+      "filePath": "./data/ideas.json",
+      "value": "",
+      "branch": {
+        "iftrue": "2",
+        "iffalse": "0",
+        "iftrueVal": "7"
+      },
+      "jsonPath": "${tempVars(\"num\")}",
+      "comparison": "0",
+      "varName": null,
+      "storage": null,
+      "name": "Check Custom Data 2.0"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "user",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "21",
+      "storage": "1",
+      "varName2": "tag",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "103",
+      "varName": "${tempVars(\"channel\")}",
+      "message": "",
+      "buttons": [
+        {
+          "name": "Одобрить",
+          "type": "SUCCESS",
+          "id": "msg-button-71bda29",
+          "row": "",
+          "url": "",
+          "emoji": "",
+          "mode": "PERSISTENT",
+          "time": "",
+          "actions": [
+            {
+              "member": "1",
+              "varName": "",
+              "info": "6",
+              "varName2": "",
+              "iftrue": "0",
+              "iftrueVal": "err",
+              "iffalse": "4",
+              "iffalseVal": "err",
+              "name": "Check If Member"
+            },
+            {
+              "storage": "0",
+              "varName": "",
+              "type": "all",
+              "disable": "disable",
+              "searchValue": "",
+              "name": "Disable Buttons and Selects"
+            },
+            {
+              "message": "0",
+              "varName": "",
+              "info": "22",
+              "storage": "1",
+              "varName2": "idea_msg",
+              "name": "Store Message Info"
+            },
+            {
+              "message": "1",
+              "varName": "idea_msg",
+              "info": "6",
+              "storage": "1",
+              "varName2": "idea_id",
+              "name": "Store Embed Info"
+            },
+            {
+              "filePath": "./data/ideas.json",
+              "jsonPath": "${tempVars(\"idea_id\")}/user",
+              "task": "0",
+              "text": "",
+              "from": "0",
+              "index": "0",
+              "varName": "user",
+              "storage": "1",
+              "name": "Store Custom Data 2.0"
+            },
+            {
+              "filePath": "./data/ideas.json",
+              "jsonPath": "${tempVars(\"idea_id\")}/msg_id",
+              "task": "0",
+              "text": "",
+              "from": "0",
+              "index": "0",
+              "varName": "msg_id",
+              "storage": "1",
+              "name": "Store Custom Data 2.0"
+            },
+            {
+              "filePath": "./data/ideas.json",
+              "jsonPath": "${tempVars(\"idea_id\")}/text",
+              "task": "0",
+              "text": "",
+              "from": "0",
+              "index": "0",
+              "varName": "text",
+              "storage": "1",
+              "name": "Store Custom Data 2.0"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "info": "1",
+              "search": "${tempVars(\"msg_id\")}",
+              "storage": "1",
+              "varName2": "msg",
+              "name": "Find Message"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Предложение",
+                  "url": "",
+                  "color": "008000",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "",
+                  "fields": [
+                    {
+                      "name": "Предложил",
+                      "value": "<@${tempVars(\"user\")}>",
+                      "inline": "true"
+                    },
+                    {
+                      "name": "Статус",
+                      "value": "Одобрено",
+                      "inline": "true"
+                    },
+                    {
+                      "name": "Предложение",
+                      "value": "${tempVars(\"text\")}",
+                      "inline": "false"
+                    }
+                  ],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "${tempVars(\"idea_id\")}",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": false,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "1",
+              "editMessageVarName": "msg",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "filePath": "./data/ideas.json",
+              "value": "да",
+              "branch": {
+                "iftrue": "0",
+                "iffalse": "1"
+              },
+              "jsonPath": "${tempVars(\"idea_id\")}/notify",
+              "comparison": "1",
+              "varName": null,
+              "storage": null,
+              "name": "Check Custom Data 2.0"
+            },
+            {
+              "channel": "101",
+              "varName": "${tempVars(\"user\")}",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Ваше предложение было одобрено!",
+                  "url": "",
+                  "color": "008000",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "",
+                  "fields": [
+                    {
+                      "name": "Предложение",
+                      "value": "${tempVars(\"text\")}",
+                      "inline": "false"
+                    }
+                  ],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": false,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "name": "End Action Sequence"
+            },
+            {
+              "anchorName": "err",
+              "name": "Action Anchor"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Ошибка!",
+                  "url": "",
+                  "color": "9b111c ",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Предложение может одобрить только владелец бота!",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ]
+        },
+        {
+          "name": "Отклонить",
+          "type": "DANGER",
+          "id": "msg-button-dde7cc2",
+          "row": "",
+          "url": "",
+          "emoji": "",
+          "mode": "PERSISTENT",
+          "time": "",
+          "actions": [
+            {
+              "member": "1",
+              "varName": "",
+              "info": "6",
+              "varName2": "",
+              "iftrue": "0",
+              "iftrueVal": "err",
+              "iffalse": "4",
+              "iffalseVal": "err",
+              "name": "Check If Member"
+            },
+            {
+              "storage": "0",
+              "varName": "",
+              "type": "all",
+              "disable": "disable",
+              "searchValue": "",
+              "name": "Disable Buttons and Selects"
+            },
+            {
+              "message": "0",
+              "varName": "",
+              "info": "22",
+              "storage": "1",
+              "varName2": "idea_msg",
+              "name": "Store Message Info"
+            },
+            {
+              "message": "1",
+              "varName": "idea_msg",
+              "info": "6",
+              "storage": "1",
+              "varName2": "idea_id",
+              "name": "Store Embed Info"
+            },
+            {
+              "filePath": "./data/ideas.json",
+              "jsonPath": "${tempVars(\"idea_id\")}/user",
+              "task": "0",
+              "text": "",
+              "from": "0",
+              "index": "0",
+              "varName": "user",
+              "storage": "1",
+              "name": "Store Custom Data 2.0"
+            },
+            {
+              "filePath": "./data/ideas.json",
+              "jsonPath": "${tempVars(\"idea_id\")}/msg_id",
+              "task": "0",
+              "text": "",
+              "from": "0",
+              "index": "0",
+              "varName": "msg_id",
+              "storage": "1",
+              "name": "Store Custom Data 2.0"
+            },
+            {
+              "filePath": "./data/ideas.json",
+              "jsonPath": "${tempVars(\"idea_id\")}/text",
+              "task": "0",
+              "text": "",
+              "from": "0",
+              "index": "0",
+              "varName": "text",
+              "storage": "1",
+              "name": "Store Custom Data 2.0"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "info": "1",
+              "search": "${tempVars(\"msg_id\")}",
+              "storage": "1",
+              "varName2": "msg",
+              "name": "Find Message"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Предложение",
+                  "url": "",
+                  "color": "9b111c",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "",
+                  "fields": [
+                    {
+                      "name": "Предложил",
+                      "value": "<@${tempVars(\"user\")}>",
+                      "inline": "true"
+                    },
+                    {
+                      "name": "Статус",
+                      "value": "Отклонено",
+                      "inline": "true"
+                    },
+                    {
+                      "name": "Предложение",
+                      "value": "${tempVars(\"text\")}",
+                      "inline": "false"
+                    }
+                  ],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "${tempVars(\"idea_id\")}",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": false,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "1",
+              "editMessageVarName": "msg",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "filePath": "./data/ideas.json",
+              "value": "да",
+              "branch": {
+                "iftrue": "0",
+                "iffalse": "1"
+              },
+              "jsonPath": "${tempVars(\"idea_id\")}/notify",
+              "comparison": "1",
+              "varName": null,
+              "storage": null,
+              "name": "Check Custom Data 2.0"
+            },
+            {
+              "channel": "101",
+              "varName": "${tempVars(\"user\")}",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Ваше предложение было отклонено!",
+                  "url": "",
+                  "color": "9b111c",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "",
+                  "fields": [
+                    {
+                      "name": "Предложение",
+                      "value": "${tempVars(\"text\")}",
+                      "inline": "false"
+                    }
+                  ],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": false,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "name": "End Action Sequence"
+            },
+            {
+              "anchorName": "err",
+              "name": "Action Anchor"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Ошибка!",
+                  "url": "",
+                  "color": "9b111c ",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Предложение может одобрить только владелец бота!",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": true,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ]
+        }
+      ],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Предложение",
+          "url": "",
+          "color": "FFD700",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "",
+          "fields": [
+            {
+              "name": "Предложил",
+              "value": "${member}",
+              "inline": "true"
+            },
+            {
+              "name": "Статус",
+              "value": "На рассмотрении",
+              "inline": "true"
+            },
+            {
+              "name": "Предложение",
+              "value": "${tempVars(\"text\")}",
+              "inline": "false"
+            }
+          ],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "${tempVars(\"num\")}",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": false,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "1",
+      "varName2": "msg",
+      "name": "Send Message"
+    },
+    {
+      "message": "1",
+      "varName": "msg",
+      "info": "15",
+      "storage": "1",
+      "varName2": "link",
+      "name": "Store Message Info"
+    },
+    {
+      "message": "1",
+      "varName": "msg",
+      "info": "1",
+      "storage": "1",
+      "varName2": "id",
+      "name": "Store Message Info"
+    },
+    {
+      "expert?": "true",
+      "filePath": "./data/ideas.json",
+      "jsonPath": "",
+      "filePathExpert": "./data/ideas.json",
+      "type": "0",
+      "title": "",
+      "val": "",
+      "task": "0",
+      "index": "N",
+      "indexcomparison": "-1",
+      "ifindexmorethan1": "0",
+      "indexval": "",
+      "indexkey": "",
+      "indexstorage": "1",
+      "indexvarName": "",
+      "valuesExpert": [
+        {
+          "key": "${tempVars(\"num\")}",
+          "task2": "{+}",
+          "value": "{}",
+          "jsonPath2": "json"
+        },
+        {
+          "key": "user",
+          "task2": "{+}",
+          "value": "${tempVars(\"user\")}",
+          "jsonPath2": "json?.[`${tempVars(\"num\")}`]"
+        },
+        {
+          "key": "user_name",
+          "task2": "{+}",
+          "value": "${tempVars(\"tag\")}",
+          "jsonPath2": "json?.[`${tempVars(\"num\")}`]"
+        },
+        {
+          "key": "text",
+          "task2": "{+}",
+          "value": "${tempVars(\"text\")}",
+          "jsonPath2": "json?.[`${tempVars(\"num\")}`]"
+        },
+        {
+          "key": "msg_id",
+          "task2": "{+}",
+          "value": "${tempVars(\"id\")}",
+          "jsonPath2": "json?.[`${tempVars(\"num\")}`]"
+        },
+        {
+          "key": "notify",
+          "task2": "{+}",
+          "value": "${tempVars(\"notify\")}",
+          "jsonPath2": "json?.[`${tempVars(\"num\")}`]"
+        }
+      ],
+      "name": "Control Custom Data 2.0"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "Предложений отправлено на рассмотрение!",
+          "url": "",
+          "color": "5539cc",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Ваше предложение находится [здесь](${tempVars(\"link\")})",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "description": "Отправить предложение по боту"
+}
