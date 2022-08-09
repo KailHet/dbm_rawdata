@@ -11,6 +11,8 @@ Raw Data of Commands and Events for Discord Bot Maker
   
   · Stream MSGs - Бот будет пересылать сообщения из определенного канала в ВАШ, на любой сервер, на котором он есть. Есть настройка по ключевым словам
 
+  · idea - [Custom Data] Команда для отправки предложений, есть опция уведомления в ЛС о принятии/отклонении
+
 # EN
   · giveaway - Giveaway System. Easy but usefull. All in 1 command. Settings for giveaway. Button to view giveaway members. Button for end giveaway (only for admins)
 
